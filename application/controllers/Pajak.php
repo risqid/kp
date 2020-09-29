@@ -46,18 +46,29 @@ class Pajak extends CI_Controller {
 				'penjualan' => $penjualan,
 				'pajak' => $pajak
 			];
+			$data_is_exist = $this->db->get_where('pajak_badan', ['tahun' => $tahun, 'bulan' => $bulan])->row_array();
 			if (empty($id)) {
-				$this->pajak_model->insert($data_input);
-				$this->update_model->update_labarugi($tahun);
-				$this->update_model->update_neraca($tahun);
-				$this->session->set_flashdata('message','<script>$.notify({icon: "flaticon-success",title: "Data berhasil ditambahkan",message: "",},{type: "primary",placement: {from: "top",align: "right"},time: 1000,});</script>');
-				redirect('pajak');
+				if ($data_is_exist['tahun'] == $tahun && $data_is_exist['bulan'] == $bulan) {
+					$this->session->set_flashdata('message','<script>swal("Data sudah ada!", "", {icon : "error",buttons: {confirm: {className : "btn btn-danger"}},});</script>');
+					redirect('pajak');
+				}else{
+					$this->pajak_model->insert($data_input);
+					$this->update_model->update_labarugi($tahun);
+					$this->update_model->update_neraca($tahun);
+					$this->session->set_flashdata('message','<script>$.notify({icon: "flaticon-success",title: "Data berhasil ditambahkan",message: "",},{type: "primary",placement: {from: "top",align: "right"},time: 1000,});</script>');
+					redirect('pajak');
+				}
 			}else {
-				$this->pajak_model->edit($data_input);
-				$this->update_model->update_labarugi($tahun);
-				$this->update_model->update_neraca($tahun);
-				$this->session->set_flashdata('message','<script>$.notify({icon: "flaticon-success",title: "Data berhasil diubah",message: "",},{type: "primary",placement: {from: "top",align: "right"},time: 1000,});</script>');
-				redirect('pajak');
+				if ($data_is_exist['tahun'] == $tahun && $data_is_exist['bulan'] == $bulan && $data_is_exist['id'] !== $id) {
+					$this->session->set_flashdata('message','<script>swal("Data sudah ada!", "", {icon : "error",buttons: {confirm: {className : "btn btn-danger"}},});</script>');
+					redirect('pajak');
+				}else{
+					$this->pajak_model->edit($data_input);
+					$this->update_model->update_labarugi($tahun);
+					$this->update_model->update_neraca($tahun);
+					$this->session->set_flashdata('message','<script>$.notify({icon: "flaticon-success",title: "Data berhasil diubah",message: "",},{type: "primary",placement: {from: "top",align: "right"},time: 1000,});</script>');
+					redirect('pajak');
+				}
 			}
 		}
 
