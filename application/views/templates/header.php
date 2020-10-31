@@ -17,11 +17,10 @@
       }
     });
   </script>
-
   <!-- CSS Files -->
+  <link rel="stylesheet" href="<?= base_url('assets') ?>/css/custom.css">
   <link rel="stylesheet" href="<?= base_url('assets') ?>/vendor/atlantis-lite/assets/css/editedbootstrap.min.css">
   <link rel="stylesheet" href="<?= base_url('assets') ?>/vendor/atlantis-lite/assets/css/atlantis.css">
-
   <!--   Core JS Files   -->
   <script src="<?= base_url('assets') ?>/vendor/atlantis-lite/assets/js/core/jquery.3.2.1.min.js"></script>
   <script src="<?= base_url('assets') ?>/vendor/atlantis-lite/assets/js/core/popper.min.js"></script>
@@ -34,5 +33,5 @@
   <script src="<?= base_url('assets') ?>/vendor/atlantis-lite/assets/js/plugin/chart.js/chart.min.js"></script>
 
 </head>
-<body data-background-color='dark'>
+<body>
   <div class="wrapper">

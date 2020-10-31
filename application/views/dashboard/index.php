@@ -8,15 +8,8 @@
                   <i class="flaticon-home"></i>
                 </a>
               </li>
-              <li class="separator">
-                <i class="flaticon-right-arrow"></i>
-              </li>
-              <li class="nav-item">
-                <a href="#"><?= $title ?></a>
-              </li>
             </ul>
           </div>
-          <h4 class="">Data bulan lalu</h4>
           <div class="row">
             <div class="col-sm-6 col-md-6">
               <div class="card card-stats card-primary card-round">
@@ -29,7 +22,7 @@
                     </div>
                     <div class="col-7 col-stats">
                       <div class="numbers">
-                        <p class="card-category">Penjualan</p>
+                        <p class="card-category">Penjualan Terakhir</p>
                         <h4 class="card-title">Rp. <?= $data['pajak_badan_terakhir']['penjualan'] ?></h4>
                       </div>
                     </div>
@@ -67,7 +60,7 @@
                     </div>
                     <div class="col-7 col-stats">
                       <div class="numbers">
-                        <p class="card-category">Penghasilan</p>
+                        <p class="card-category">Penghasilan Terakhir</p>
                         <h4 class="card-title">Rp. <?= $data['pajak_pribadi_terakhir']['penghasilan'] ?></h4>
                       </div>
                     </div>
@@ -95,20 +88,13 @@
               </div>
             </div>
           </div>
-          <h4 class="">Data 12 bulan terakhir</h4>
           <div class="row">
             <div class="col-md-12">
               <div class="card">
                 <div class="card-header">
                   <div class="card-head-row">
-                    <div class="card-title">Statistik Penjualan</div>
+                    <div class="card-title">Penjualan 12 Bulan Terakhir</div>
                     <div class="card-tools">
-                      <a href="#" class="btn btn-info btn-border btn-round btn-sm">
-                        <span class="btn-label">
-                          <i class="fa fa-print"></i>
-                        </span>
-                        Print
-                      </a>
                     </div>
                   </div>
                 </div>
@@ -116,7 +102,6 @@
                   <div class="chart-container" style="min-height: 375px">
                     <canvas id="statisticsChart"></canvas>
                   </div>
-                  <div id="myChartLegend"></div>
                 </div>
               </div>
             </div>

@@ -1,8 +1,8 @@
     <!-- Sidebar -->
-    <div class="sidebar sidebar-style-2" data-background-color='dark2'>
+    <div class="sidebar sidebar-style-2" data-background-color=''>
       <div class="sidebar-wrapper scrollbar scrollbar-inner">
         <div class="sidebar-content">
-          <ul class="nav nav-primary">
+          <ul class="nav nav-info">
             <?php $menu = $this->db->get('menu')->result_array() ?>
             <?php foreach ($menu as $m) :?>
               <?php if ($title == $m['menu']) : ?>

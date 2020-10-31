@@ -23,9 +23,9 @@
                 <div class="card-header">
                   <div class="d-flex align-items-center">
                     <h4 class="card-title"><?= $subtitle ?></h4>
-                    <button class="btn btn-primary btn-round ml-auto" data-toggle="modal" data-target="#modalInput">
+                    <button class="btn btn-info btn-round ml-auto" data-toggle="modal" data-target="#modalInput">
                       <i class="fa fa-plus"></i>
-                        Tambah Data
+                        Tambah
                     </button>
                   </div>
                 </div>
@@ -34,7 +34,7 @@
                   <!-- modal input -->
                   <div class="modal fade" id="modalInput" tabindex="-1" role="dialog" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-                      <div class="modal-content bg-dark2">
+                      <div class="modal-content">
                         <div class="modal-header no-bd justify-content-center">
                           <h4 class="modal-title">Tambah <?= $subtitle ?></h4>
                         </div>
@@ -110,7 +110,7 @@
                             </div>
                             <button type="button" class="btn btn-danger float-right ml-3" data-dismiss="modal">Batal</button>
                             <button type="button" class="btn btn-secondary float-right ml-3" onclick="calculateTotal()">Hitung</button>
-                            <button type="submit" name="submit" class="btn btn-primary float-right" onclick="">Tambah</button>
+                            <button type="submit" name="submit" class="btn btn-info float-right" onclick="">Tambah</button>
                           </form>
                         </div>
                         <div class="modal-footer no-bd">
@@ -122,7 +122,7 @@
 
                   <!-- table -->
                   <div class="table-responsive">
-                    <table id="multi-filter-select" class="display table table-striped table-hover" >
+                    <table id="multi-filter-select" class="table table-head-bg-info table-striped table-hover" >
                       <thead>
                         <tr>
                           <th>Tahun</th>
@@ -170,7 +170,7 @@
                   <!-- modal edit -->
                   <div class="modal fade" id="modalEdit" tabindex="-1" role="dialog" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-                      <div class="modal-content bg-dark2">
+                      <div class="modal-content">
                         <div class="modal-header no-bd justify-content-center">
                           <h4 class="modal-title">Ubah <?= $subtitle ?></h4>
                         </div>
@@ -248,7 +248,7 @@
                             </div>
                             <button type="button" class="btn btn-danger float-right ml-3" data-dismiss="modal">Batal</button>
                             <button type="button" class="btn btn-secondary float-right ml-3" onclick="calculateTotalEdit()">Hitung</button>
-                            <button type="submit" name="submit" class="btn btn-primary float-right">Ubah</button>
+                            <button type="submit" name="submit" class="btn btn-info float-right">Ubah</button>
                           </form>
                         </div>
                         <div class="modal-footer no-bd">
