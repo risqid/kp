@@ -100,7 +100,34 @@
                 </div>
                 <div class="card-body">
                   <div class="chart-container" style="min-height: 375px">
-                    <canvas id="statisticsChart"></canvas>
+                    <canvas id="chartPenjualan"></canvas>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="card">
+                <div class="card-header">
+                  <div class="card-head-row">
+                    <div class="card-title">Global Search</div>
+                    <div class="card-tools">
+                    </div>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <div id="chart-container">
+                    <div id="search-nav">
+                      <form class="navbar-left navbar-form nav-search mr-md-3">
+                        <div class="input-group">
+                          <div class="input-group-prepend">
+                            <button type="submit" class="btn btn-search pr-1">
+                              <i class="fa fa-search search-icon"></i>
+                            </button>
+                          </div>
+                          <input type="text" placeholder="Search ..." class="form-control">
+                        </div>
+                      </form>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -113,7 +140,7 @@
         function getChartData() {
             // membuat objek ajax
             var xhr = new XMLHttpRequest();
-            var url = "dashboard/chart_data/";
+            var url = "dashboard/chart_penjualan/";
             // menentukan fungsi handler
             xhr.onload = function() {
                 if (this.readyState == 4 && this.status == 200) {
@@ -155,9 +182,9 @@
                   var pajak9 = dataChart[9].pajak;
                   var pajak10 = dataChart[10].pajak;
                   var pajak11 = dataChart[11].pajak;
-        var ctx = document.getElementById('statisticsChart').getContext('2d');
+        var ctx = document.getElementById('chartPenjualan').getContext('2d');
 
-        var statisticsChart = new Chart(ctx, {
+        var chartPenjualan = new Chart(ctx, {
           type: 'line',
           data: {
             labels: [bulan11, bulan10, bulan9, bulan8, bulan7, bulan6, bulan5, bulan4, bulan3, bulan2, bulan1, bulan0],
@@ -233,11 +260,12 @@
         var myLegendContainer = document.getElementById("myChartLegend");
 
         // generate HTML legend
-        myLegendContainer.innerHTML = statisticsChart.generateLegend();
+        myLegendContainer.innerHTML = chartPenjualan.generateLegend();
                 }
             };
             xhr.open("GET", url, true);
             // mengirim request
             xhr.send();
         }
+
       </script>

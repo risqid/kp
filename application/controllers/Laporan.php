@@ -5,6 +5,7 @@ class Laporan extends CI_Controller {
 
 	function __construct(){
 		parent::__construct();
+    is_logged_in();
 		$this->load->model('laporan_model');
 	}
 
@@ -31,26 +32,16 @@ class Laporan extends CI_Controller {
         $this->load->model('laporan_model');
         $data['data'] = $this->laporan_model->show($tahun);
         $laporan = $data['data'];
-        echo '<div class="card"><div class="card-header"><div class="d-flex align-items-center"><h5 class="card-title">Pajak Badan</h5></div></div><div class="card-body"><div class="table-responsive"><table class="display table table-striped table-hover" ><thead><tr><th>Tahun</th><th>Bulan</th><th>Penjualan</th><th>Pajak</th></tr></thead><tfoot><tr><th>Total</th><th></th><th>Rp. '. $laporan['total_penjualan']['penjualan'] .'</th> <th>Rp. '. $laporan['total_pajak']['pajak'] .'</th></tr></tfoot><tbody>
+        echo '<h5 class="card-title text-center">Laporan Tahun '.$laporan['neraca']['tahun'].'</h5><br><h5 class="card-title">Pajak Badan</h5><br><table class="table table-striped table-head-bg-info"><thead><tr><th>Tahun</th><th>Bulan</th><th>Penjualan</th><th>Pajak</th></tr></thead><tfoot><tr><th>Total</th><th></th><th>'. $laporan['total_penjualan']['penjualan'] .'</th> <th>'. $laporan['total_pajak']['pajak'] .'</th></tr></tfoot><tbody>
         ';
         foreach ($laporan['pajak_badan'] as $pb) {
-            echo '<tr><td>'. $pb['tahun'] .'</td><td>'. $pb['bulan'] .'</td><td>Rp. '. $pb['penjualan'] .'</td><td>Rp. '. $pb['pajak'] .'</td></tr>';
+            echo '<tr><td>'. $pb['tahun'] .'</td><td>'. $pb['bulan'] .'</td><td>'. $pb['penjualan'] .'</td><td>'. $pb['pajak'] .'</td></tr>';
         }
         echo '
                               </tbody>
                             </table>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="card">
-                        <div class="card-header">
-                          <div class="d-flex align-items-center">
-                            <h5 class="card-title">Biaya Lain</h5>
-                          </div>
-                        </div>
-                        <div class="card-body">
-                          <div class="table-responsive">
-                            <table class="display table table-striped table-hover" >
+                            <h5 class="card-title">Biaya Lain</h5><br>
+                            <table class="table table-striped table-head-bg-info">
                               <thead>
                                 <tr>
                                   <th>Tahun</th>
@@ -84,18 +75,9 @@ class Laporan extends CI_Controller {
                                 </tr>
                               </tbody>
                             </table>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="card">
-                        <div class="card-header">
-                          <div class="d-flex align-items-center">
-                            <h5 class="card-title">Laba Rugi</h5>
-                          </div>
-                        </div>
-                        <div class="card-body">
-                          <div class="table-responsive">
-                            <table class="display table table-striped table-hover" >
+                            </div>
+                            <h5 class="card-title">Laba Rugi</h5><br>
+                            <table class="table table-striped table-head-bg-info">
                               <thead>
                                 <tr>
                                   <th>Tahun</th>
@@ -119,18 +101,8 @@ class Laporan extends CI_Controller {
                                 </tr>
                               </tbody>
                             </table>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="card">
-                        <div class="card-header">
-                          <div class="d-flex align-items-center">
-                            <h5 class="card-title">Neraca</h5>
-                          </div>
-                        </div>
-                        <div class="card-body">
-                          <div class="table-responsive">
-                            <table class="display table table-striped table-hover" >
+                            <h5 class="card-title">Neraca</h5><br>
+                            <table class="table table-striped table-head-bg-info">
                               <thead>
                                 <tr>
                                   <th>Tahun</th>
@@ -150,18 +122,8 @@ class Laporan extends CI_Controller {
                                 </tr>
                               </tbody>
                             </table>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="card">
-                        <div class="card-header">
-                          <div class="d-flex align-items-center">
-                            <h5 class="card-title">Pajak Pribadi</h5>
-                          </div>
-                        </div>
-                        <div class="card-body">
-                          <div class="table-responsive">
-                            <table class="display table table-striped table-hover" >
+                            <h5 class="card-title">Pajak Pribadi</h5><br>
+                            <table class="table table-striped table-head-bg-info" >
                               <thead>
                                 <tr>
                                   <th>Tahun</th>
@@ -174,16 +136,16 @@ class Laporan extends CI_Controller {
                                 <tr>
                                   <th>Total</th>
                                   <th></th>
-                                  <th>Rp. '. $laporan['total_penghasilan']['penghasilan'] .'</th>
-                                  <th>Rp. '. $laporan['total_pajak']['pajak'] .'</th>
+                                  <th>'. $laporan['total_penghasilan']['penghasilan'] .'</th>
+                                  <th>'. $laporan['total_pajak']['pajak'] .'</th>
                                 </tr>
                               </tfoot>
                               <tbody>
         ';
         foreach ($laporan['pajak_pribadi'] as $pp) {
-            echo '<tr><td>'. $pp['tahun'] .'</td><td>'. $pp['bulan'] .'</td><td>Rp. '. $pp['penghasilan'] .'</td><td>Rp. '. $pp['pajak'] .'</td></tr>';
+            echo '<tr><td>'. $pp['tahun'] .'</td><td>'. $pp['bulan'] .'</td><td>'. $pp['penghasilan'] .'</td><td>'. $pp['pajak'] .'</td></tr>';
         }
-        echo '</tbody></table></div></div></div>';
+        echo '</tbody></table>';
     }
 
 }

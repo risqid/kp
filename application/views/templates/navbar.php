@@ -24,7 +24,7 @@
         <div class="container-fluid">
           <ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
             <li class="nav-item">
-              <a class="nav-link btn" href="#" data-toggle="tooltip" data-original-title="Log out">
+              <a class="nav-link btn" href="<?= base_url('auth/logout') ?>" onclick="return confirm('apakah anda yakin ingin keluar?')" data-toggle="tooltip" data-original-title="Log out">
                 <span><i class="fas fa-sign-out-alt "></i></span>
               </a>
             </li>

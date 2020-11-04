@@ -5,6 +5,7 @@ class Dashboard extends CI_Controller {
 
 	function __construct(){
 		parent::__construct();
+        is_logged_in();
 		$this->load->model('dashboard_model');
 	}
 
@@ -20,12 +21,21 @@ class Dashboard extends CI_Controller {
 		$this->load->view('dashboard/index', $data);
 		$this->load->view('templates/footer');
 	}
-    function chart_data()
+    function chart_penjualan()
     {
     	$this->db->limit(12);
     	$this->db->order_by('id', 'DESC');
         $result = $this->db->get('pajak_badan')->result_array();
         $result_json = json_encode($result);
         echo $result_json;
+    }
+    function chart_tahunan()
+    {
+    	$this->db->limit(5);
+    	$this->db->order_by('id', 'DESC');
+    	$result['laba_rugi'] = $this->db->get('laba_rugi')->result_array();
+    	$result['neraca'] = $this->db->get('neraca')->result_array();
+    	$result_json = json_encode($result);
+    	echo $result_json;
     }
 }
