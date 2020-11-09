@@ -33,6 +33,14 @@ class Pajakpribadi extends CI_Controller {
 
 		$data['data'] = $this->pajakpribadi_model->show();
 
+		// ketika di hosting tidak menerima zero value untuk auro increment
+		$this->db->limit(1);
+		$this->db->order_by('id', 'DESC');
+		$this->db->select('id');
+		$last_id = $this->db->get('pajak_pribadi')->row_array();
+		$new_id = $last_id['id'] + 1;
+		// 
+
 		if (isset($_POST['submit'])) {
 			$id = htmlspecialchars($this->input->post('id', true));
 			$tahun = htmlspecialchars($this->input->post('tahun', true));
@@ -52,6 +60,9 @@ class Pajakpribadi extends CI_Controller {
 					$this->session->set_flashdata('message','<script>swal("Data sudah ada!", "", {icon : "error",buttons: {confirm: {className : "btn btn-danger"}},});</script>');
 					redirect('pajakpribadi');
 				}else{
+					// ketika di hosting tidak menerima zero value untuk auro increment
+					$data_input['id'] = $new_id;
+					//
 					$this->pajakpribadi_model->insert($data_input);
 					$this->session->set_flashdata('message','<script>$.notify({icon: "flaticon-success",title: "Data berhasil ditambahkan",message: "",},{type: "primary",placement: {from: "top",align: "right"},time: 1000,});</script>');
 					redirect('pajakpribadi');					
