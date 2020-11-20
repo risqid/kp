@@ -65,8 +65,6 @@ class Biayalain extends CI_Controller {
 					$data_input['id'] = $new_id;
 					//
 					$this->biayalain_model->insert($data_input);
-					$this->update_model->update_labarugi($tahun);
-					$this->update_model->update_neraca($tahun);
 					$this->session->set_flashdata('message','<script>$.notify({icon: "flaticon-success",title: "Data berhasil ditambahkan",message: "",},{type: "primary",placement: {from: "top",align: "right"},time: 1000,});</script>');
 					redirect('biayalain');
 				 }

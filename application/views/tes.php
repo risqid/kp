@@ -16,12 +16,6 @@
               </li>
             </ul>
           </div>
+          <?php var_dump($tahun) ?>
         </div>
       </div>
-      <script>
-//Notify
-$.notify({icon: "flaticon-success",title: "Data berhasil ditambahkan",message: "",
-},{type: "primary",placement: {from: "top",align: "right"},time: 1000,});
-// sweet alert
-swal("data berhasil ditambahkan!", "", {icon : "success",buttons: {confirm: {className : "btn btn-primary"}},});
-      </script>

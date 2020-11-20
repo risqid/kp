@@ -21,7 +21,25 @@ class Labarugi extends CI_Controller {
 		// for select input options
 		$this->db->distinct();
 		$this->db->select('tahun');
-		$data['tahun_pajak'] = $this->db->get('pajak_badan')->result_array();
+		$tahun_pajak = $this->db->get('pajak_badan')->result_array();
+		$this->db->select('tahun');
+		$tahun_biaya_lain = $this->db->get('biaya_lain')->result_array();
+		$this->db->distinct();
+		$this->db->select('pajak_badan.tahun');
+		$this->db->join('biaya_lain', 'pajak_badan.tahun = biaya_lain.tahun');
+		$tahun_joined_distinct= $this->db->get('pajak_badan')->result_array();
+		$this->db->select('pajak_badan.tahun');
+		$this->db->join('biaya_lain', 'pajak_badan.tahun = biaya_lain.tahun');
+		$tahun_joined= $this->db->get('pajak_badan')->result_array();
+		if (count($tahun_joined) % 12 !== 0) {
+			$limit = count($tahun_pajak) - 1;
+			$this->db->limit($limit);
+			$this->db->order_by('id', 'ASC');
+			$this->db->select('tahun');
+			$data['tahun'] = $this->db->get('biaya_lain')->result_array();
+		}else {
+			$data['tahun'] = $tahun_joined_distinct;
+		}
 
 		// ketika di hosting tidak menerima zero value untuk auro increment
 		$this->db->limit(1);
@@ -61,7 +79,6 @@ class Labarugi extends CI_Controller {
 					$data_input['id'] = $new_id;
 					//
 					$this->labarugi_model->insert($data_input);
-					$this->update_model->update_neraca($tahun);
 					$this->session->set_flashdata('message','<script>$.notify({icon: "flaticon-success",title: "Data berhasil ditambahkan",message: "",},{type: "primary",placement: {from: "top",align: "right"},time: 1000,});</script>');
 					redirect('labarugi');
 				 }
