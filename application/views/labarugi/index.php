@@ -4,7 +4,7 @@
             <h4 class="page-title"><?= $title ?></h4>
             <ul class="breadcrumbs">
               <li class="nav-home">
-                <a href="#">
+                <a href="<?= base_url() ?>">
                   <i class="flaticon-home"></i>
                 </a>
               </li>
@@ -12,7 +12,7 @@
                 <i class="flaticon-right-arrow"></i>
               </li>
               <li class="nav-item">
-                <a href="#"><?= $title ?></a>
+                <a href="<?= base_url($url) ?>"><?= $title ?></a>
               </li>
             </ul>
             <?= $this->session->flashdata('message');?>

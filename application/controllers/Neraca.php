@@ -13,6 +13,7 @@ class Neraca extends CI_Controller {
 	{
 	  	$data['title'] = "Neraca";
 		$data['subtitle'] = "Data Neraca";
+		$data['url'] = "neraca";
 
 		// data for table
 		$data['data'] = $this->neraca_model->show();
@@ -25,7 +26,11 @@ class Neraca extends CI_Controller {
 		$this->db->order_by('id', 'DESC');
 		$this->db->select('id');
 		$last_id = $this->db->get('neraca')->row_array();
-		$new_id = $last_id['id'] + 1;
+		if ($last_id) {
+			$new_id = $last_id['id'] + 1;
+		}else {
+			$new_id = 1;
+		}
 		// 
 
 		if (isset($_POST['submit'])) {

@@ -14,7 +14,8 @@ class Biayalain extends CI_Controller {
 	{
 	  	$data['title'] = "Biaya Lain";
 		$data['subtitle'] = "Data Biaya Lain";
-
+		$data['url'] = "biayalain";
+		
 		$data['data'] = $this->biayalain_model->show();
 
 		// ketika di hosting tidak menerima zero value untuk auro increment
@@ -22,7 +23,11 @@ class Biayalain extends CI_Controller {
 		$this->db->order_by('id', 'DESC');
 		$this->db->select('id');
 		$last_id = $this->db->get('biaya_lain')->row_array();
-		$new_id = $last_id['id'] + 1;
+		if ($last_id) {
+			$new_id = $last_id['id'] + 1;			
+		}else {
+			$new_id = 1;
+		}
 		// 
 
 		if (isset($_POST['submit'])) {

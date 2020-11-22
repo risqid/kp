@@ -14,6 +14,7 @@ class Labarugi extends CI_Controller {
 	{
 	  	$data['title'] = "Laba Rugi";
 		$data['subtitle'] = "Data Laba Rugi";
+		$data['url'] = "labarugi";
 
 		// data for table
 		$data['data'] = $this->labarugi_model->show();
@@ -46,7 +47,11 @@ class Labarugi extends CI_Controller {
 		$this->db->order_by('id', 'DESC');
 		$this->db->select('id');
 		$last_id = $this->db->get('laba_rugi')->row_array();
-		$new_id = $last_id['id'] + 1;
+		if ($last_id) {
+			$new_id = $last_id['id'] + 1;
+		}else {
+			$new_id = 1;
+		}
 		// 
 
 		if (isset($_POST['submit'])) {

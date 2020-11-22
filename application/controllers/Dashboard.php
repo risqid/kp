@@ -13,7 +13,8 @@ class Dashboard extends CI_Controller {
 	{
 		$data['title'] = "Dashboard";
 
-		$data['data'] = $this->dashboard_model->show();
+		$data['pajak_badan'] = $this->dashboard_model->get_pajak_badan();
+        $data['pajak_pribadi'] = $this->dashboard_model->get_pajak_pribadi();
 
 		$this->load->view('templates/header', $data);
 		$this->load->view('templates/navbar');

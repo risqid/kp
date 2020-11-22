@@ -4,7 +4,7 @@
             <h4 class="page-title"><?= $title ?></h4>
             <ul class="breadcrumbs">
               <li class="nav-home">
-                <a href="#">
+                <a href="<?= base_url() ?>">
                   <i class="flaticon-home"></i>
                 </a>
               </li>
@@ -23,7 +23,11 @@
                     <div class="col-7 col-stats">
                       <div class="numbers">
                         <p class="card-category">Penjualan Terakhir</p>
-                        <h4 class="card-title">Rp. <?= $data['pajak_badan_terakhir']['penjualan'] ?></h4>
+                        <?php if($pajak_badan === null) : ?>
+                        <h4 class="card-title">Belum ada data</h4>
+                        <?php else : ?>
+                        <h4 class="card-title">Rp. <?= $pajak_badan['penjualan'] ?></h4>
+                        <?php endif ?> 
                       </div>
                     </div>
                   </div>
@@ -42,7 +46,11 @@
                     <div class="col-7 col-stats">
                       <div class="numbers">
                         <p class="card-category">Pajak</p>
-                        <h4 class="card-title">Rp. <?= $data['pajak_badan_terakhir']['pajak'] ?></h4>
+                        <?php if($pajak_badan === null) : ?>
+                        <h4 class="card-title">Belum ada data</h4>
+                        <?php else : ?>
+                        <h4 class="card-title">Rp. <?= $pajak_badan['pajak'] ?></h4>
+                        <?php endif ?> 
                       </div>
                     </div>
                   </div>
@@ -61,7 +69,11 @@
                     <div class="col-7 col-stats">
                       <div class="numbers">
                         <p class="card-category">Penghasilan Terakhir</p>
-                        <h4 class="card-title">Rp. <?= $data['pajak_pribadi_terakhir']['penghasilan'] ?></h4>
+                        <?php if($pajak_pribadi === null) : ?>
+                        <h4 class="card-title">Belum ada data</h4>
+                        <?php else : ?>
+                        <h4 class="card-title">Rp. <?= $pajak_pribadi['penghasilan'] ?></h4>
+                        <?php endif ?>
                       </div>
                     </div>
                   </div>
@@ -80,7 +92,11 @@
                     <div class="col-7 col-stats">
                       <div class="numbers">
                         <p class="card-category">Pajak</p>
-                        <h4 class="card-title">Rp. <?= $data['pajak_pribadi_terakhir']['pajak'] ?></h4>
+                        <?php if($pajak_pribadi === null) : ?>
+                        <h4 class="card-title">Belum ada data</h4>
+                        <?php else : ?>
+                        <h4 class="card-title">Rp. <?= $pajak_pribadi['pajak'] ?></h4>
+                        <?php endif ?>
                       </div>
                     </div>
                   </div>

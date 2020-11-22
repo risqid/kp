@@ -13,7 +13,7 @@ class Pajakpribadi extends CI_Controller {
 	{
 	  	$data['title'] = "Pajak Pribadi";
 		$data['subtitle'] = "Data Perpajakan Pribadi";
-
+		$data['url'] = "pajakpribadi";
 		// data untuk modal
 		$data['bulan'] = [
 			"01" => 'Januari',
@@ -38,7 +38,11 @@ class Pajakpribadi extends CI_Controller {
 		$this->db->order_by('id', 'DESC');
 		$this->db->select('id');
 		$last_id = $this->db->get('pajak_pribadi')->row_array();
-		$new_id = $last_id['id'] + 1;
+		if ($last_id) {
+			$new_id = $last_id['id'] + 1;
+		}else {
+			$new_id = 1;
+		}
 		// 
 
 		if (isset($_POST['submit'])) {

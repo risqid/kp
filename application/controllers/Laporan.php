@@ -11,8 +11,9 @@ class Laporan extends CI_Controller {
 
 	public function index()
 	{
-	  	$data['title'] = "Laporan";
+	  $data['title'] = "Laporan";
 		$data['subtitle'] = "Data Laporan";
+    $data['url'] = "laporan";
 
 		// data for table
 		$data['data'] = $this->laporan_model->show(date('Y')-1);

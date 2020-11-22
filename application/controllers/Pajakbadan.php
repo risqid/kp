@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Pajak extends CI_Controller {
+class Pajakbadan extends CI_Controller {
 
 	function __construct(){
 		parent::__construct();
@@ -14,6 +14,7 @@ class Pajak extends CI_Controller {
 	{
 	  	$data['title'] = "Pajak Badan";
 		$data['subtitle'] = "Data Perpajakan Badan";
+		$data['url'] = "pajakbadan";
 
 		// data untuk modal
 		$data['bulan'] = [
@@ -39,7 +40,11 @@ class Pajak extends CI_Controller {
 		$this->db->order_by('id', 'DESC');
 		$this->db->select('id');
 		$last_id = $this->db->get('pajak_badan')->row_array();
-		$new_id = $last_id['id'] + 1;
+		if ($last_id) {
+			$new_id = $last_id['id'] + 1;
+		}else {
+			$new_id = 1;
+		}
 		// 
 
 		if (isset($_POST['submit'])) {
