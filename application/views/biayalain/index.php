@@ -227,17 +227,17 @@
                         <?php foreach ($data as $d) :?>
                         <tr>
                           <td><?= $d['tahun'] ?></td>
-                          <td><?= $d['kantor'] ?></td>
-                          <td><?= $d['gaji'] ?></td>
-                          <td><?= $d['bonus'] ?></td>
-                          <td><?= $d['transport'] ?></td>
-                          <td><?= $d['listrik'] ?></td>
-                          <td><?= $d['keamanan'] ?></td>
-                          <td><?= $d['kesehatan'] ?></td>
-                          <td><?= $d['konsumsi'] ?></td>
-                          <td><?= $d['air'] ?></td>
-                          <td><?= $d['lain_lain'] ?></td>
-                          <td><?= $d['total'] ?></td>
+                          <td>Rp<?= number_format($d['kantor'], 0,',','.')  ?></td>
+                          <td>Rp<?= number_format($d['gaji'], 0,',','.')  ?></td>
+                          <td>Rp<?= number_format($d['bonus'], 0,',','.')  ?></td>
+                          <td>Rp<?= number_format($d['transport'], 0,',','.')  ?></td>
+                          <td>Rp<?= number_format($d['listrik'], 0,',','.')  ?></td>
+                          <td>Rp<?= number_format($d['keamanan'], 0,',','.')  ?></td>
+                          <td>Rp<?= number_format($d['kesehatan'], 0,',','.')  ?></td>
+                          <td>Rp<?= number_format($d['konsumsi'], 0,',','.')  ?></td>
+                          <td>Rp<?= number_format($d['air'], 0,',','.')  ?></td>
+                          <td>Rp<?= number_format($d['lain_lain'], 0,',','.')  ?></td>
+                          <td>Rp<?= number_format($d['total'], 0,',','.')  ?></td>
                           <td>
                             <div class="form-button-action">
                               <a href="#" data-toggle="modal" data-target="#modalEdit" data-id="<?= $d['id']?>" data-tahun="<?= $d['tahun']?>" data-kantor="<?= $d['kantor']?>" data-gaji="<?= $d['gaji']?>" data-bonus="<?= $d['bonus']?>" data-transport="<?= $d['transport']?>" data-listrik="<?= $d['listrik']?>" data-keamanan="<?= $d['keamanan']?>" data-kesehatan="<?= $d['kesehatan']?>" data-konsumsi="<?= $d['konsumsi']?>" data-air="<?= $d['air']?>" data-lain_lain="<?= $d['lain_lain']?>" data-total="<?= $d['total']?>" onclick="loadEditData(this)">

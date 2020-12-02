@@ -142,10 +142,10 @@
                         <?php foreach ($data as $d) :?>
                         <tr>
                           <td><?= $d['tahun'] ?></td>
-                          <td><?= $d['modal'] ?></td>
-                          <td><?= $d['laba_rugi'] ?></td>
-                          <td><?= $d['kas'] ?></td>
-                          <td><?= $d['total'] ?></td>
+                          <td>Rp<?= number_format($d['modal'], 0,',','.')  ?></td>
+                          <td>Rp<?= number_format($d['laba_rugi'], 0,',','.')  ?></td>
+                          <td>Rp<?= number_format($d['kas'], 0,',','.')  ?></td>
+                          <td>Rp<?= number_format($d['total'], 0,',','.')  ?></td>
                           <td>
                             <div class="form-button-action">
                               <a href="#" data-toggle="modal" data-target="#modalEdit" data-id="<?= $d['id']?>" data-tahun="<?= $d['tahun']?>" data-modal="<?= $d['modal']?>" data-laba_rugi="<?= $d['laba_rugi']?>" data-kas="<?= $d['kas']?>" data-total="<?= $d['total']?>" onclick="loadEditData(this)">

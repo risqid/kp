@@ -142,8 +142,8 @@
                         <tr>
                           <td><?= $d['tahun'] ?></td>
                           <td><?= $d['bulan'] ?></td>
-                          <td><?= $d['penghasilan'] ?></td>
-                          <td><?= $d['pajak'] ?></td>
+                          <td>Rp<?= number_format($d['penghasilan'], 0,',','.') ?></td>
+                          <td>Rp<?= number_format($d['pajak'], 0,',','.') ?></td>
                           <td>
                             <div class="form-button-action">
                               <a href="#" data-toggle="modal" data-target="#modalEdit" data-id="<?= $d['id']?>" data-tahun="<?= $d['tahun']?>" data-bulan="<?= $d['bulan']?>" data-penghasilan="<?= $d['penghasilan']?>" data-pajak="<?= $d['pajak']?>" onclick="loadEditData(this)">

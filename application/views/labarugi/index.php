@@ -168,12 +168,12 @@
                         <?php foreach ($data as $d) :?>
                         <tr>
                           <td><?= $d['tahun'] ?></td>
-                          <td><?= $d['penjualan'] ?></td>
-                          <td><?= $d['bahan_baku'] ?></td>
-                          <td><?= $d['tktl'] ?></td>
-                          <td><?= $d['hpp'] ?></td>
-                          <td><?= $d['biaya_lain'] ?></td>
-                          <td><?= $d['total'] ?></td>
+                          <td>Rp<?= number_format($d['penjualan'], 0,',','.')  ?></td>
+                          <td>Rp<?= number_format($d['bahan_baku'], 0,',','.')  ?></td>
+                          <td>Rp<?= number_format($d['tktl'], 0,',','.')  ?></td>
+                          <td>Rp<?= number_format($d['hpp'], 0,',','.')  ?></td>
+                          <td>Rp<?= number_format($d['biaya_lain'], 0,',','.')  ?></td>
+                          <td>Rp<?= number_format($d['total'], 0,',','.')  ?></td>
                           <td>
                             <div class="form-button-action">
                               <a href="#" data-toggle="modal" data-target="#modalEdit" data-id="<?= $d['id']?>" data-tahun="<?= $d['tahun']?>" data-penjualan="<?= $d['penjualan']?>" data-bahan_baku="<?= $d['bahan_baku']?>" data-tktl="<?= $d['tktl']?>" data-hpp="<?= $d['hpp']?>" data-biaya_lain="<?= $d['biaya_lain']?>" data-total="<?= $d['total']?>" onclick="loadEditData(this)">

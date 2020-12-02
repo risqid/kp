@@ -26,7 +26,7 @@
                         <?php if($pajak_badan === null) : ?>
                         <h4 class="card-title">Belum ada data</h4>
                         <?php else : ?>
-                        <h4 class="card-title">Rp. <?= $pajak_badan['penjualan'] ?></h4>
+                        <h4 class="card-title">Rp<?= number_format($pajak_badan['penjualan'], 0,',','.') ?></h4>
                         <?php endif ?> 
                       </div>
                     </div>
@@ -35,7 +35,7 @@
               </div>
             </div>
             <div class="col-sm-6 col-md-6">
-              <div class="card card-stats card-info card-round">
+              <div class="card card-stats card-primary card-round">
                 <div class="card-body">
                   <div class="row">
                     <div class="col-5">
@@ -45,11 +45,11 @@
                     </div>
                     <div class="col-7 col-stats">
                       <div class="numbers">
-                        <p class="card-category">Pajak</p>
+                        <p class="card-category">Pajak Badan</p>
                         <?php if($pajak_badan === null) : ?>
                         <h4 class="card-title">Belum ada data</h4>
                         <?php else : ?>
-                        <h4 class="card-title">Rp. <?= $pajak_badan['pajak'] ?></h4>
+                        <h4 class="card-title">Rp<?= number_format($pajak_badan['pajak'], 0,',','.') ?></h4>
                         <?php endif ?> 
                       </div>
                     </div>
@@ -58,7 +58,7 @@
               </div>
             </div>
             <div class="col-sm-6 col-md-6">
-              <div class="card card-stats card-success card-round">
+              <div class="card card-stats card-info card-round">
                 <div class="card-body ">
                   <div class="row">
                     <div class="col-5">
@@ -72,7 +72,7 @@
                         <?php if($pajak_pribadi === null) : ?>
                         <h4 class="card-title">Belum ada data</h4>
                         <?php else : ?>
-                        <h4 class="card-title">Rp. <?= $pajak_pribadi['penghasilan'] ?></h4>
+                        <h4 class="card-title">Rp<?= number_format($pajak_pribadi['penghasilan'], 0,',','.') ?></h4>
                         <?php endif ?>
                       </div>
                     </div>
@@ -81,7 +81,7 @@
               </div>
             </div>
             <div class="col-sm-6 col-md-6">
-              <div class="card card-stats card-secondary card-round">
+              <div class="card card-stats card-info card-round">
                 <div class="card-body ">
                   <div class="row">
                     <div class="col-5">
@@ -91,11 +91,11 @@
                     </div>
                     <div class="col-7 col-stats">
                       <div class="numbers">
-                        <p class="card-category">Pajak</p>
+                        <p class="card-category">Pajak Pribadi</p>
                         <?php if($pajak_pribadi === null) : ?>
                         <h4 class="card-title">Belum ada data</h4>
                         <?php else : ?>
-                        <h4 class="card-title">Rp. <?= $pajak_pribadi['pajak'] ?></h4>
+                        <h4 class="card-title">Rp<?= number_format($pajak_pribadi['pajak'], 0,',','.') ?></h4>
                         <?php endif ?>
                       </div>
                     </div>
