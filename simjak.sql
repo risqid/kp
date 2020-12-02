@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 04, 2020 at 02:43 AM
--- Server version: 10.5.6-MariaDB
--- PHP Version: 7.4.12
+-- Generation Time: Dec 02, 2020 at 09:29 AM
+-- Server version: 10.5.8-MariaDB
+-- PHP Version: 7.4.13
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -30,17 +30,17 @@ SET time_zone = "+00:00";
 CREATE TABLE `biaya_lain` (
   `id` int(11) NOT NULL,
   `tahun` int(4) NOT NULL,
-  `kantor` float DEFAULT NULL,
-  `gaji` float DEFAULT NULL,
-  `bonus` float DEFAULT NULL,
-  `transport` float DEFAULT NULL,
-  `listrik` float DEFAULT NULL,
-  `keamanan` float DEFAULT NULL,
-  `kesehatan` float DEFAULT NULL,
-  `konsumsi` float DEFAULT NULL,
-  `air` float DEFAULT NULL,
-  `lain_lain` float DEFAULT NULL,
-  `total` float NOT NULL
+  `kantor` int(11) DEFAULT NULL,
+  `gaji` int(11) DEFAULT NULL,
+  `bonus` int(11) DEFAULT NULL,
+  `transport` int(11) DEFAULT NULL,
+  `listrik` int(11) DEFAULT NULL,
+  `keamanan` int(11) DEFAULT NULL,
+  `kesehatan` int(11) DEFAULT NULL,
+  `konsumsi` int(11) DEFAULT NULL,
+  `air` int(11) DEFAULT NULL,
+  `lain_lain` int(11) DEFAULT NULL,
+  `total` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -48,8 +48,7 @@ CREATE TABLE `biaya_lain` (
 --
 
 INSERT INTO `biaya_lain` (`id`, `tahun`, `kantor`, `gaji`, `bonus`, `transport`, `listrik`, `keamanan`, `kesehatan`, `konsumsi`, `air`, `lain_lain`, `total`) VALUES
-(1, 2019, 9400000, 108000000, 1200000, 30600000, 6600000, 360000, 2400000, 18000000, 3600000, 300000, 180460000),
-(48, 2020, 0, 0, 0, 0, 0, 0, 0, 0, 0, 180460000, 180460000);
+(1, 2019, 9400000, 108000000, 1200000, 30600000, 6600000, 360000, 2400000, 18000000, 3600000, 300000, 180460000);
 
 -- --------------------------------------------------------
 
@@ -73,8 +72,7 @@ CREATE TABLE `laba_rugi` (
 --
 
 INSERT INTO `laba_rugi` (`id`, `tahun`, `penjualan`, `bahan_baku`, `tktl`, `hpp`, `biaya_lain`, `total`) VALUES
-(19, 2019, 1271060900, 1016848720, 1040848720, 230212180, 180460000, 49752180),
-(20, 2020, 2035899300, 1628719440, 1652719440, 383179860, 180460000, 202719860);
+(1, 2019, 1271060900, 1016848720, 1040848720, 230212180, 180460000, 49752180);
 
 -- --------------------------------------------------------
 
@@ -95,7 +93,7 @@ CREATE TABLE `menu` (
 
 INSERT INTO `menu` (`id`, `menu`, `url`, `icon`) VALUES
 (1, 'Dashboard', 'dashboard', 'fas fa-home'),
-(2, 'Pajak Badan', 'pajak', 'fas fa-book'),
+(2, 'Pajak Badan', 'pajakbadan', 'fas fa-book'),
 (3, 'Pajak Pribadi', 'pajakpribadi', 'fas fa-address-book'),
 (4, 'Biaya Lain', 'biayalain', 'fas fa-cubes'),
 (5, 'Laba Rugi', 'labarugi', 'fas fa-chart-line'),
@@ -122,8 +120,7 @@ CREATE TABLE `neraca` (
 --
 
 INSERT INTO `neraca` (`id`, `tahun`, `modal`, `laba_rugi`, `kas`, `total`) VALUES
-(3, 2019, 50000000, 49752180, 99752180, 99752180),
-(4, 2020, 50000000, 202719860, 252719860, 252719860);
+(1, 2019, 50000000, 49752180, 99752180, 99752180);
 
 -- --------------------------------------------------------
 
@@ -155,19 +152,19 @@ INSERT INTO `pajak_badan` (`id`, `tahun`, `bulan`, `penjualan`, `pajak`) VALUES
 (9, 2019, 'September', 104160000, 520800),
 (10, 2019, 'Oktober', 122472200, 612361),
 (11, 2019, 'November', 102821750, 514109),
-(56, 2019, 'Desember', 106675100, 533376),
-(72, 2020, 'Januari', 131821000, 659105),
-(73, 2020, 'Februari', 120167000, 600835),
-(74, 2020, 'Maret', 125675100, 628376),
-(75, 2020, 'April', 142512000, 712560),
-(76, 2020, 'Mei', 148472200, 742361),
-(77, 2020, 'Juni', 164250000, 821250),
-(78, 2020, 'Juli', 170540000, 852700),
-(79, 2020, 'Agustus', 186215000, 931075),
-(80, 2020, 'September', 191653000, 958265),
-(81, 2020, 'Oktober', 208568000, 1042840),
-(82, 2020, 'November', 216237000, 1081185),
-(83, 2020, 'Desember', 229789000, 1148945);
+(12, 2019, 'Desember', 106675100, 533376),
+(13, 2020, 'Januari', 131821000, 659105),
+(14, 2020, 'Februari', 120167000, 600835),
+(15, 2020, 'Maret', 125675100, 628376),
+(16, 2020, 'April', 142512000, 712560),
+(17, 2020, 'Mei', 148472200, 742361),
+(18, 2020, 'Juni', 164250000, 821250),
+(19, 2020, 'Juli', 170540000, 852700),
+(20, 2020, 'Agustus', 186215000, 931075),
+(21, 2020, 'September', 191653000, 958265),
+(22, 2020, 'Oktober', 208568000, 1042840),
+(23, 2020, 'November', 216237000, 1081185),
+(24, 2020, 'Desember', 229789000, 1148945);
 
 -- --------------------------------------------------------
 
@@ -199,8 +196,7 @@ INSERT INTO `pajak_pribadi` (`id`, `tahun`, `bulan`, `penghasilan`, `pajak`) VAL
 (9, 2019, 'September', 4100000, 41000),
 (10, 2019, 'Oktober', 4400000, 44000),
 (11, 2019, 'November', 4200000, 42000),
-(12, 2019, 'Desember', 4100000, 41000),
-(26, 2020, 'September', 5278000, 52780);
+(12, 2019, 'Desember', 4100000, 41000);
 
 -- --------------------------------------------------------
 
@@ -308,7 +304,7 @@ ALTER TABLE `pajak_badan`
 -- AUTO_INCREMENT for table `pajak_pribadi`
 --
 ALTER TABLE `pajak_pribadi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `user`
