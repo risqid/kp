@@ -62,7 +62,7 @@ class Labarugi extends CI_Controller {
 			$tktl = htmlspecialchars($this->input->post('tktl', true));
 			$hpp = htmlspecialchars($this->input->post('hpp', true));
 			$biaya_lain = htmlspecialchars($this->input->post('biaya_lain', true));
-			$total = htmlspecialchars($this->input->post('total', true));
+			$laba_rugi = htmlspecialchars($this->input->post('laba_rugi', true));
 			$data_input = [
 				'id' => $id,
 				'tahun' => $tahun,
@@ -71,7 +71,7 @@ class Labarugi extends CI_Controller {
 				'tktl' => $tktl,
 				'hpp' => $hpp,
 				'biaya_lain' => $biaya_lain,
-				'total' => $total
+				'laba_rugi' => $laba_rugi
 			];
 			$data_is_exist = $this->db->get_where('laba_rugi', ['tahun' => $tahun])->row_array();
 			if (empty($id)) {
@@ -130,10 +130,10 @@ class Labarugi extends CI_Controller {
 
     function get_biaya_lain($tahun)
     {
-        $this->db->select('total');
+        $this->db->select('biaya_lain');
         $result = $this->db->get_where('biaya_lain', ['tahun' => $tahun])->row_array();
         if ($result !== null) {
-            echo $result['total'];            
+            echo $result['biaya_lain'];            
         }
     }
 }

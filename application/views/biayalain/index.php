@@ -176,14 +176,14 @@
                               </div>
                               <div class="col-lg-6">
                                 <div class="form-group">
-                                  <label>Total</label>
+                                  <label>biaya_lain</label>
                                   <div class="input-group">
                                     <div class="input-group-prepend">
                                       <span class="input-group-text">Rp</span>
                                     </div>
-                                    <input name="total" type="text" required autocomplete="off" class="form-control" placeholder="masukkan total . . ." value="0" onkeyup="calculateTotal(), validateInput(this)">
+                                    <input name="biaya_lain" type="text" required autocomplete="off" class="form-control" placeholder="masukkan biaya_lain . . ." value="0" onkeyup="calculateTotal(), validateInput(this)">
                                   </div>
-                                  <small id="total" class="form-text text-danger"></small>
+                                  <small id="biaya_lain" class="form-text text-danger"></small>
                                 </div>
                               </div>
                             </div>
@@ -214,7 +214,7 @@
                           <th>Konsumsi</th>
                           <th>Air</th>
                           <th>Lainlain</th>
-                          <th>Total</th>
+                          <th>biaya_lain</th>
                           <th style="width: 10%">Aksi</th>
                         </tr>
                       </thead>
@@ -237,10 +237,10 @@
                           <td>Rp<?= number_format($d['konsumsi'], 0,',','.')  ?></td>
                           <td>Rp<?= number_format($d['air'], 0,',','.')  ?></td>
                           <td>Rp<?= number_format($d['lain_lain'], 0,',','.')  ?></td>
-                          <td>Rp<?= number_format($d['total'], 0,',','.')  ?></td>
+                          <td>Rp<?= number_format($d['biaya_lain'], 0,',','.')  ?></td>
                           <td>
                             <div class="form-button-action">
-                              <a href="#" data-toggle="modal" data-target="#modalEdit" data-id="<?= $d['id']?>" data-tahun="<?= $d['tahun']?>" data-kantor="<?= $d['kantor']?>" data-gaji="<?= $d['gaji']?>" data-bonus="<?= $d['bonus']?>" data-transport="<?= $d['transport']?>" data-listrik="<?= $d['listrik']?>" data-keamanan="<?= $d['keamanan']?>" data-kesehatan="<?= $d['kesehatan']?>" data-konsumsi="<?= $d['konsumsi']?>" data-air="<?= $d['air']?>" data-lain_lain="<?= $d['lain_lain']?>" data-total="<?= $d['total']?>" onclick="loadEditData(this)">
+                              <a href="#" data-toggle="modal" data-target="#modalEdit" data-id="<?= $d['id']?>" data-tahun="<?= $d['tahun']?>" data-kantor="<?= $d['kantor']?>" data-gaji="<?= $d['gaji']?>" data-bonus="<?= $d['bonus']?>" data-transport="<?= $d['transport']?>" data-listrik="<?= $d['listrik']?>" data-keamanan="<?= $d['keamanan']?>" data-kesehatan="<?= $d['kesehatan']?>" data-konsumsi="<?= $d['konsumsi']?>" data-air="<?= $d['air']?>" data-lain_lain="<?= $d['lain_lain']?>" data-biaya_lain="<?= $d['biaya_lain']?>" onclick="loadEditData(this)">
                                 <button type="button" data-toggle="tooltip" class="btn btn-link btn-warning btn-lg" data-original-title="Ubah">
                                   <i class="fa fa-edit"></i>
                                 </button>
@@ -406,12 +406,12 @@
                               </div>
                               <div class="col-lg-6">
                                 <div class="form-group">
-                                  <label>Total</label>
+                                  <label>biaya_lain</label>
                                   <div class="input-group">
                                     <div class="input-group-prepend">
                                       <span class="input-group-text">Rp</span>
                                     </div>
-                                    <input name="total" type="text" required autocomplete="off" class="form-control" placeholder="masukkan total . . ." onkeyup="calculateEditTotal(), validateEdit(this)">
+                                    <input name="biaya_lain" type="text" required autocomplete="off" class="form-control" placeholder="masukkan biaya_lain . . ." onkeyup="calculateEditTotal(), validateEdit(this)">
                                   </div>
                                   <small id="edittotal" class="form-text text-danger"></small>
                                 </div>
@@ -446,7 +446,7 @@
           var konsumsi = document.add.konsumsi.value;
           var air = document.add.air.value;
           var lain_lain = document.add.lain_lain.value;
-          document.add.total.value = parseFloat(kantor) + parseFloat(gaji) + parseFloat(bonus) + parseFloat(transport) + parseFloat(listrik) + parseFloat(keamanan) + parseFloat(kesehatan) + parseFloat(konsumsi) + parseFloat(air) + parseFloat(lain_lain);
+          document.add.biaya_lain.value = parseFloat(kantor) + parseFloat(gaji) + parseFloat(bonus) + parseFloat(transport) + parseFloat(listrik) + parseFloat(keamanan) + parseFloat(kesehatan) + parseFloat(konsumsi) + parseFloat(air) + parseFloat(lain_lain);
         }
 
         function validateInput(el){
@@ -470,8 +470,8 @@
             var konsumsi = document.add.konsumsi.value;
             var air = document.add.air.value;
             var lain_lain = document.add.lain_lain.value;
-            var total = document.add.total.value;
-            if (isNaN(tahun) || isNaN(kantor) || isNaN(gaji) || isNaN(bonus) || isNaN(transport) || isNaN(listrik) || isNaN(keamanan) || isNaN(kesehatan) || isNaN(konsumsi) || isNaN(air) || isNaN(lain_lain) || total == 0){
+            var biaya_lain = document.add.biaya_lain.value;
+            if (isNaN(tahun) || isNaN(kantor) || isNaN(gaji) || isNaN(bonus) || isNaN(transport) || isNaN(listrik) || isNaN(keamanan) || isNaN(kesehatan) || isNaN(konsumsi) || isNaN(air) || isNaN(lain_lain) || biaya_lain == 0){
                 return false;
             }
         }
@@ -490,7 +490,7 @@
             var konsumsi = baris.getAttribute("data-konsumsi");
             var air = baris.getAttribute("data-air");
             var lain_lain = baris.getAttribute("data-lain_lain");
-            var total = baris.getAttribute("data-total");
+            var biaya_lain = baris.getAttribute("data-biaya_lain");
             document.edit.id.value = id;
             document.edit.tahun.value = tahun;
             document.edit.kantor.value = kantor;
@@ -503,7 +503,7 @@
             document.edit.konsumsi.value = konsumsi;
             document.edit.air.value = air;
             document.edit.lain_lain.value = lain_lain;
-            document.edit.total.value = total;
+            document.edit.biaya_lain.value = biaya_lain;
         }
 
         function calculateEditTotal(){
@@ -517,7 +517,7 @@
           var konsumsi = document.edit.konsumsi.value;
           var air = document.edit.air.value;
           var lain_lain = document.edit.lain_lain.value;
-          document.edit.total.value = parseFloat(kantor) + parseFloat(gaji) + parseFloat(bonus) + parseFloat(transport) + parseFloat(listrik) + parseFloat(keamanan) + parseFloat(kesehatan) + parseFloat(konsumsi) + parseFloat(air) + parseFloat(lain_lain);
+          document.edit.biaya_lain.value = parseFloat(kantor) + parseFloat(gaji) + parseFloat(bonus) + parseFloat(transport) + parseFloat(listrik) + parseFloat(keamanan) + parseFloat(kesehatan) + parseFloat(konsumsi) + parseFloat(air) + parseFloat(lain_lain);
         }
 
         function validateEdit(el){
@@ -541,8 +541,8 @@
             var konsumsi = document.edit.konsumsi.value;
             var air = document.edit.air.value;
             var lain_lain = document.edit.lain_lain.value;
-            var total = document.edit.total.value;
-            if (isNaN(tahun) || isNaN(kantor) || isNaN(gaji) || isNaN(bonus) || isNaN(transport) || isNaN(listrik) || isNaN(keamanan) || isNaN(kesehatan) || isNaN(konsumsi) || isNaN(air) || isNaN(lain_lain) || total == 0){
+            var biaya_lain = document.edit.biaya_lain.value;
+            if (isNaN(tahun) || isNaN(kantor) || isNaN(gaji) || isNaN(bonus) || isNaN(transport) || isNaN(listrik) || isNaN(keamanan) || isNaN(kesehatan) || isNaN(konsumsi) || isNaN(air) || isNaN(lain_lain) || biaya_lain == 0){
                 return false;
             }
         }

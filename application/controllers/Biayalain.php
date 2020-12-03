@@ -43,7 +43,7 @@ class Biayalain extends CI_Controller {
 			$konsumsi = htmlspecialchars($this->input->post('konsumsi', true));
 			$air = htmlspecialchars($this->input->post('air', true));
 			$lain_lain = htmlspecialchars($this->input->post('lain_lain', true));
-			$total = htmlspecialchars($this->input->post('total', true));
+			$biaya_lain = htmlspecialchars($this->input->post('biaya_lain', true));
 			$data_input = [
 				'id' => $id,
 				'tahun' => $tahun,
@@ -57,7 +57,7 @@ class Biayalain extends CI_Controller {
 				'konsumsi' => $konsumsi,
 				'air' => $air,
 				'lain_lain' => $lain_lain,
-				'total' => $total
+				'biaya_lain' => $biaya_lain
 			];
 			$data_is_exist = $this->db->get_where('biaya_lain', ['tahun' => $tahun])->row_array();
 			if (empty($id)) {

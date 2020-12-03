@@ -97,14 +97,14 @@
                               </div>
                               <div class="col-lg-6">
                                 <div class="form-group">
-                                  <label>Total</label>
+                                  <label>neraca</label>
                                   <div class="input-group">
                                     <div class="input-group-prepend">
                                       <span class="input-group-text">Rp</span>
                                     </div>
-                                    <input name="total" type="text" value="0" required autocomplete="off" class="form-control" placeholder="masukkan total . . ." onkeyup="calculateTotal(), validateInput(this)">
+                                    <input name="neraca" type="text" value="0" required autocomplete="off" class="form-control" placeholder="masukkan neraca . . ." onkeyup="calculateTotal(), validateInput(this)">
                                   </div>
-                                  <small id="total" class="form-text text-danger"></small>
+                                  <small id="neraca" class="form-text text-danger"></small>
                                 </div>
                               </div>
                             </div>
@@ -129,7 +129,7 @@
                           <th>Modal</th>
                           <th>Laba Rugi</th>
                           <th>Kas</th>
-                          <th>Total</th>
+                          <th>neraca</th>
                           <th style="width: 10%">Aksi</th>
                         </tr>
                       </thead>
@@ -145,10 +145,10 @@
                           <td>Rp<?= number_format($d['modal'], 0,',','.')  ?></td>
                           <td>Rp<?= number_format($d['laba_rugi'], 0,',','.')  ?></td>
                           <td>Rp<?= number_format($d['kas'], 0,',','.')  ?></td>
-                          <td>Rp<?= number_format($d['total'], 0,',','.')  ?></td>
+                          <td>Rp<?= number_format($d['neraca'], 0,',','.')  ?></td>
                           <td>
                             <div class="form-button-action">
-                              <a href="#" data-toggle="modal" data-target="#modalEdit" data-id="<?= $d['id']?>" data-tahun="<?= $d['tahun']?>" data-modal="<?= $d['modal']?>" data-laba_rugi="<?= $d['laba_rugi']?>" data-kas="<?= $d['kas']?>" data-total="<?= $d['total']?>" onclick="loadEditData(this)">
+                              <a href="#" data-toggle="modal" data-target="#modalEdit" data-id="<?= $d['id']?>" data-tahun="<?= $d['tahun']?>" data-modal="<?= $d['modal']?>" data-laba_rugi="<?= $d['laba_rugi']?>" data-kas="<?= $d['kas']?>" data-neraca="<?= $d['neraca']?>" onclick="loadEditData(this)">
                                 <button type="button" data-toggle="tooltip" class="btn btn-link btn-warning btn-lg" data-original-title="Ubah">
                                   <i class="fa fa-edit"></i>
                                 </button>
@@ -235,12 +235,12 @@
                               </div>
                               <div class="col-lg-6">
                                 <div class="form-group">
-                                  <label>Total</label>
+                                  <label>neraca</label>
                                   <div class="input-group">
                                     <div class="input-group-prepend">
                                       <span class="input-group-text">Rp</span>
                                     </div>
-                                    <input name="total" type="text" value="0" required autocomplete="off" class="form-control" placeholder="masukkan total . . ." onkeyup="calculateTotalEdit(), validateEdit(this)">
+                                    <input name="neraca" type="text" value="0" required autocomplete="off" class="form-control" placeholder="masukkan neraca . . ." onkeyup="calculateTotalEdit(), validateEdit(this)">
                                   </div>
                                   <small id="edittotal" class="form-text text-danger"></small>
                                 </div>
@@ -285,7 +285,7 @@
             document.add.modal.value = 50000000;
             document.add.laba_rugi.value = 0;
             document.add.kas.value = 0;
-            document.add.total.value = 0;
+            document.add.neraca.value = 0;
         }
         function calculateTotal() {
             var laba_rugi = parseFloat(document.add.laba_rugi.value);
@@ -294,9 +294,9 @@
             }else{
               var modal = parseFloat(document.add.modal.value);
               var kas = modal + laba_rugi;
-              var total = modal + laba_rugi;
+              var neraca = modal + laba_rugi;
               document.add.kas.value = kas;
-              document.add.total.value = total;
+              document.add.neraca.value = neraca;
             }
         }
         function validateInput(el){
@@ -312,8 +312,8 @@
           var modal = document.add.modal.value;
           var laba_rugi = document.add.laba_rugi.value;
           var kas = document.add.kas.value;
-          var total = document.add.total.value;
-          if ( tahun == "pilih tahun" || modal == 0 || laba_rugi == 0 || kas == 0 || total == 0){
+          var neraca = document.add.neraca.value;
+          if ( tahun == "pilih tahun" || modal == 0 || laba_rugi == 0 || kas == 0 || neraca == 0){
               return false;
           }
         }
@@ -324,13 +324,13 @@
             var modal = baris.getAttribute("data-modal");
             var laba_rugi = baris.getAttribute("data-laba_rugi");
             var kas = baris.getAttribute("data-kas");
-            var total = baris.getAttribute("data-total");
+            var neraca = baris.getAttribute("data-neraca");
             document.edit.id.value = id;
             document.edit.tahun.value = tahun;
             document.edit.modal.value = modal;
             document.edit.laba_rugi.value = laba_rugi;
             document.edit.kas.value = kas;
-            document.edit.total.value = total;
+            document.edit.neraca.value = neraca;
         }
         function getLabaRugiEdit(tahun) {
             // membuat objek ajax
@@ -352,7 +352,7 @@
             document.edit.modal.value = 50000000;
             document.edit.laba_rugi.value = 0;
             document.edit.kas.value = 0;
-            document.edit.total.value = 0;
+            document.edit.neraca.value = 0;
         }
         function calculateTotalEdit() {
             var laba_rugi = parseFloat(document.edit.laba_rugi.value);
@@ -361,9 +361,9 @@
             }else{
               var modal = parseFloat(document.edit.modal.value);
               var kas = modal + laba_rugi;
-              var total = modal + laba_rugi;
+              var neraca = modal + laba_rugi;
               document.edit.kas.value = kas;
-              document.edit.total.value = total;
+              document.edit.neraca.value = neraca;
             }
         }
         function validateEdit(el){
@@ -379,8 +379,8 @@
           var modal = document.edit.modal.value;
           var laba_rugi = document.edit.laba_rugi.value;
           var kas = document.edit.kas.value;
-          var total = document.edit.total.value;
-          if ( tahun == "pilih tahun" || total == 0 || kas == 0 || hpp == 0 || laba_rugi == 0 || modal == 0){
+          var neraca = document.edit.neraca.value;
+          if ( tahun == "pilih tahun" || neraca == 0 || kas == 0 || hpp == 0 || laba_rugi == 0 || modal == 0){
               return false;
           }
         }

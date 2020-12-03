@@ -121,14 +121,14 @@
                               </div>
                               <div class="col-lg-6">
                                 <div class="form-group">
-                                  <label>Total</label>
+                                  <label>laba_rugi</label>
                                   <div class="input-group">
                                     <div class="input-group-prepend">
                                       <span class="input-group-text">Rp</span>
                                     </div>
-                                    <input name="total" type="text" required autocomplete="off" class="form-control" placeholder="masukkan total . . ." value="0" onkeyup="calculateTotal(), validateInput(this)">
+                                    <input name="laba_rugi" type="text" required autocomplete="off" class="form-control" placeholder="masukkan laba_rugi . . ." value="0" onkeyup="calculateTotal(), validateInput(this)">
                                   </div>
-                                  <small id="total" class="form-text text-danger"></small>
+                                  <small id="laba_rugi" class="form-text text-danger"></small>
                                 </div>
                               </div>
                             </div>
@@ -155,7 +155,7 @@
                           <th>TKTL</th>
                           <th>HPP</th>
                           <th>Biaya Lain</th>
-                          <th>Total</th>
+                          <th>laba_rugi</th>
                           <th style="width: 10%">Aksi</th>
                         </tr>
                       </thead>
@@ -173,10 +173,10 @@
                           <td>Rp<?= number_format($d['tktl'], 0,',','.')  ?></td>
                           <td>Rp<?= number_format($d['hpp'], 0,',','.')  ?></td>
                           <td>Rp<?= number_format($d['biaya_lain'], 0,',','.')  ?></td>
-                          <td>Rp<?= number_format($d['total'], 0,',','.')  ?></td>
+                          <td>Rp<?= number_format($d['laba_rugi'], 0,',','.')  ?></td>
                           <td>
                             <div class="form-button-action">
-                              <a href="#" data-toggle="modal" data-target="#modalEdit" data-id="<?= $d['id']?>" data-tahun="<?= $d['tahun']?>" data-penjualan="<?= $d['penjualan']?>" data-bahan_baku="<?= $d['bahan_baku']?>" data-tktl="<?= $d['tktl']?>" data-hpp="<?= $d['hpp']?>" data-biaya_lain="<?= $d['biaya_lain']?>" data-total="<?= $d['total']?>" onclick="loadEditData(this)">
+                              <a href="#" data-toggle="modal" data-target="#modalEdit" data-id="<?= $d['id']?>" data-tahun="<?= $d['tahun']?>" data-penjualan="<?= $d['penjualan']?>" data-bahan_baku="<?= $d['bahan_baku']?>" data-tktl="<?= $d['tktl']?>" data-hpp="<?= $d['hpp']?>" data-biaya_lain="<?= $d['biaya_lain']?>" data-laba_rugi="<?= $d['laba_rugi']?>" onclick="loadEditData(this)">
                                 <button type="button" data-toggle="tooltip" class="btn btn-link btn-warning btn-lg" data-original-title="Ubah">
                                   <i class="fa fa-edit"></i>
                                 </button>
@@ -287,12 +287,12 @@
                               </div>
                               <div class="col-lg-6">
                                 <div class="form-group">
-                                  <label>Total</label>
+                                  <label>laba_rugi</label>
                                   <div class="input-group">
                                     <div class="input-group-prepend">
                                       <span class="input-group-text">Rp</span>
                                     </div>
-                                    <input name="total" type="text" required autocomplete="off" class="form-control" placeholder="masukkan total . . ." onkeyup="calculateTotalEdit(), validateEdit(this)">
+                                    <input name="laba_rugi" type="text" required autocomplete="off" class="form-control" placeholder="masukkan laba_rugi . . ." onkeyup="calculateTotalEdit(), validateEdit(this)">
                                   </div>
                                   <small id="edittotal" class="form-text text-danger"></small>
                                 </div>
@@ -359,7 +359,7 @@
             document.add.bahan_baku.value = 0;
             document.add.tktl.value = 0;
             document.add.hpp.value = 0;
-            document.add.total.value = 0;
+            document.add.laba_rugi.value = 0;
         }
         function calculateTotal() {
             var penjualan = document.add.penjualan.value;
@@ -370,11 +370,11 @@
               var bahanBaku = penjualan * 0.8;
               var tktl = bahanBaku + 24000000;
               var hpp = penjualan - tktl;
-              var total = hpp - biaya_lain;
+              var laba_rugi = hpp - biaya_lain;
               document.add.bahan_baku.value = bahanBaku;
               document.add.tktl.value = tktl;
               document.add.hpp.value = hpp;
-              document.add.total.value = total;
+              document.add.laba_rugi.value = laba_rugi;
             }
         }
         function validateInput(el){
@@ -387,12 +387,12 @@
         }
         function validateForm(){
           var tahun = document.add.tahun.value;
-          var total = document.add.total.value;
+          var laba_rugi = document.add.laba_rugi.value;
           var tktl = document.add.tktl.value;
           var hpp = document.add.hpp.value;
           var bahan_baku = document.add.bahan_baku.value;
           var penjualan = document.add.penjualan.value;
-          if ( tahun == "pilih tahun" || total == 0 || tktl == 0 || hpp == 0 || bahan_baku == 0 || penjualan == 0){
+          if ( tahun == "pilih tahun" || laba_rugi == 0 || tktl == 0 || hpp == 0 || bahan_baku == 0 || penjualan == 0){
               return false;
           }
         }
@@ -406,7 +406,7 @@
             var tktl = baris.getAttribute("data-tktl");
             var hpp = baris.getAttribute("data-hpp");
             var biaya_lain = baris.getAttribute("data-biaya_lain");
-            var total = baris.getAttribute("data-total");
+            var laba_rugi = baris.getAttribute("data-laba_rugi");
             document.edit.id.value = id;
             document.edit.tahun.value = tahun;
             document.edit.penjualan.value = penjualan;
@@ -414,7 +414,7 @@
             document.edit.tktl.value = tktl;
             document.edit.hpp.value = hpp;
             document.edit.biaya_lain.value = biaya_lain;
-            document.edit.total.value = total;
+            document.edit.laba_rugi.value = laba_rugi;
         }
         function getPenjualanEdit(tahun) {
             // membuat objek ajax
@@ -459,7 +459,7 @@
             document.edit.bahan_baku.value = 0;
             document.edit.tktl.value = 0;
             document.edit.hpp.value = 0;
-            document.edit.total.value = 0;
+            document.edit.laba_rugi.value = 0;
         }
         function calculateTotalEdit() {
             var penjualan = document.edit.penjualan.value;
@@ -470,11 +470,11 @@
               var bahanBaku = penjualan * 0.8;
               var tktl = bahanBaku + 24000000;
               var hpp = penjualan - tktl;
-              var total = hpp - biaya_lain;
+              var laba_rugi = hpp - biaya_lain;
               document.edit.bahan_baku.value = bahanBaku;
               document.edit.tktl.value = tktl;
               document.edit.hpp.value = hpp;
-              document.edit.total.value = total;
+              document.edit.laba_rugi.value = laba_rugi;
             }
         }
         function validateEdit(el){
@@ -487,12 +487,12 @@
         }
         function validateFormEdit(){
           var tahun = document.edit.tahun.value;
-          var total = document.edit.total.value;
+          var laba_rugi = document.edit.laba_rugi.value;
           var tktl = document.edit.tktl.value;
           var hpp = document.edit.hpp.value;
           var bahan_baku = document.edit.bahan_baku.value;
           var penjualan = document.edit.penjualan.value;
-          if ( tahun == "pilih tahun" || total == 0 || tktl == 0 || hpp == 0 || bahan_baku == 0 || penjualan == 0){
+          if ( tahun == "pilih tahun" || laba_rugi == 0 || tktl == 0 || hpp == 0 || bahan_baku == 0 || penjualan == 0){
               return false;
           }
         }

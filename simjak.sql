@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.4
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Nov 04, 2020 at 02:43 AM
--- Server version: 10.5.6-MariaDB
--- PHP Version: 7.4.12
+-- Host: localhost:3306
+-- Generation Time: Dec 03, 2020 at 04:07 AM
+-- Server version: 5.7.24
+-- PHP Version: 7.2.19
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -30,24 +30,24 @@ SET time_zone = "+00:00";
 CREATE TABLE `biaya_lain` (
   `id` int(11) NOT NULL,
   `tahun` int(4) NOT NULL,
-  `kantor` float DEFAULT NULL,
-  `gaji` float DEFAULT NULL,
-  `bonus` float DEFAULT NULL,
-  `transport` float DEFAULT NULL,
-  `listrik` float DEFAULT NULL,
-  `keamanan` float DEFAULT NULL,
-  `kesehatan` float DEFAULT NULL,
-  `konsumsi` float DEFAULT NULL,
-  `air` float DEFAULT NULL,
-  `lain_lain` float DEFAULT NULL,
-  `total` float NOT NULL
+  `kantor` int(20) DEFAULT NULL,
+  `gaji` int(20) DEFAULT NULL,
+  `bonus` int(20) DEFAULT NULL,
+  `transport` int(20) DEFAULT NULL,
+  `listrik` int(20) DEFAULT NULL,
+  `keamanan` int(20) DEFAULT NULL,
+  `kesehatan` int(20) DEFAULT NULL,
+  `konsumsi` int(20) DEFAULT NULL,
+  `air` int(20) DEFAULT NULL,
+  `lain_lain` int(20) DEFAULT NULL,
+  `biaya_lain` int(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `biaya_lain`
 --
 
-INSERT INTO `biaya_lain` (`id`, `tahun`, `kantor`, `gaji`, `bonus`, `transport`, `listrik`, `keamanan`, `kesehatan`, `konsumsi`, `air`, `lain_lain`, `total`) VALUES
+INSERT INTO `biaya_lain` (`id`, `tahun`, `kantor`, `gaji`, `bonus`, `transport`, `listrik`, `keamanan`, `kesehatan`, `konsumsi`, `air`, `lain_lain`, `biaya_lain`) VALUES
 (1, 2019, 9400000, 108000000, 1200000, 30600000, 6600000, 360000, 2400000, 18000000, 3600000, 300000, 180460000),
 (48, 2020, 0, 0, 0, 0, 0, 0, 0, 0, 0, 180460000, 180460000);
 
@@ -65,14 +65,14 @@ CREATE TABLE `laba_rugi` (
   `tktl` int(11) NOT NULL,
   `hpp` int(11) NOT NULL,
   `biaya_lain` int(11) NOT NULL,
-  `total` int(11) NOT NULL
+  `laba_rugi` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `laba_rugi`
 --
 
-INSERT INTO `laba_rugi` (`id`, `tahun`, `penjualan`, `bahan_baku`, `tktl`, `hpp`, `biaya_lain`, `total`) VALUES
+INSERT INTO `laba_rugi` (`id`, `tahun`, `penjualan`, `bahan_baku`, `tktl`, `hpp`, `biaya_lain`, `laba_rugi`) VALUES
 (19, 2019, 1271060900, 1016848720, 1040848720, 230212180, 180460000, 49752180),
 (20, 2020, 2035899300, 1628719440, 1652719440, 383179860, 180460000, 202719860);
 
@@ -95,7 +95,7 @@ CREATE TABLE `menu` (
 
 INSERT INTO `menu` (`id`, `menu`, `url`, `icon`) VALUES
 (1, 'Dashboard', 'dashboard', 'fas fa-home'),
-(2, 'Pajak Badan', 'pajak', 'fas fa-book'),
+(2, 'Pajak Badan', 'pajakbadan', 'fas fa-book'),
 (3, 'Pajak Pribadi', 'pajakpribadi', 'fas fa-address-book'),
 (4, 'Biaya Lain', 'biayalain', 'fas fa-cubes'),
 (5, 'Laba Rugi', 'labarugi', 'fas fa-chart-line'),
@@ -114,14 +114,14 @@ CREATE TABLE `neraca` (
   `modal` int(11) NOT NULL,
   `laba_rugi` int(11) NOT NULL,
   `kas` int(11) NOT NULL,
-  `total` int(11) NOT NULL
+  `neraca` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `neraca`
 --
 
-INSERT INTO `neraca` (`id`, `tahun`, `modal`, `laba_rugi`, `kas`, `total`) VALUES
+INSERT INTO `neraca` (`id`, `tahun`, `modal`, `laba_rugi`, `kas`, `neraca`) VALUES
 (3, 2019, 50000000, 49752180, 99752180, 99752180),
 (4, 2020, 50000000, 202719860, 252719860, 252719860);
 
@@ -210,7 +210,7 @@ INSERT INTO `pajak_pribadi` (`id`, `tahun`, `bulan`, `penghasilan`, `pajak`) VAL
 
 CREATE TABLE `user` (
   `id` int(1) NOT NULL,
-  `username` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `username` varchar(25) COLLATE utf8mb4_unicode_ci NOT NULL,
   `password` varchar(256) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -315,6 +315,22 @@ ALTER TABLE `pajak_pribadi`
 --
 ALTER TABLE `user`
   MODIFY `id` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `laba_rugi`
+--
+ALTER TABLE `laba_rugi`
+  ADD CONSTRAINT `laba_rugi_ibfk_1` FOREIGN KEY (`tahun`) REFERENCES `biaya_lain` (`tahun`);
+
+--
+-- Constraints for table `neraca`
+--
+ALTER TABLE `neraca`
+  ADD CONSTRAINT `neraca_ibfk_1` FOREIGN KEY (`tahun`) REFERENCES `laba_rugi` (`tahun`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

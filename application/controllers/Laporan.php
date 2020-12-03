@@ -33,10 +33,10 @@ class Laporan extends CI_Controller {
         $this->load->model('laporan_model');
         $data['data'] = $this->laporan_model->show($tahun);
         $laporan = $data['data'];
-        echo '<h5 class="card-title text-center">Laporan Tahun '.$laporan['neraca']['tahun'].'</h5><br><h5 class="card-title">Pajak Badan</h5><br><table class="table table-striped table-head-bg-info"><thead><tr><th>Tahun</th><th>Bulan</th><th>Penjualan</th><th>Pajak</th></tr></thead><tfoot><tr><th>Total</th><th></th><th>'. $laporan['total_penjualan']['penjualan'] .'</th> <th>'. $laporan['total_pajak']['pajak'] .'</th></tr></tfoot><tbody>
+        echo '<h5 class="card-title">Laporan Tahun '.$laporan['neraca']['tahun'].'</h5><br><h5 class="card-title">Pajak Badan</h5><br><table class="table table-striped table-head-bg-info"><thead><tr><th>Tahun</th><th>Bulan</th><th>Penjualan</th><th>Pajak</th></tr></thead><tfoot><tr><th>Total</th><th></th><th>Rp'. number_format($laporan['total_penjualan']['penjualan'],0,',','.')  .'</th><th>Rp'. number_format($laporan['total_pajak']['pajak'],0,',','.')  .'</th></tr></tfoot><tbody>
         ';
         foreach ($laporan['pajak_badan'] as $pb) {
-            echo '<tr><td>'. $pb['tahun'] .'</td><td>'. $pb['bulan'] .'</td><td>'. $pb['penjualan'] .'</td><td>'. $pb['pajak'] .'</td></tr>';
+            echo '<tr><td>'. $pb['tahun'] .'</td><td>'. $pb['bulan'] .'</td><td>Rp'. number_format($pb['penjualan'], 0,',','.') .'</td><td>Rp'. number_format($pb['pajak'], 0,',','.') .'</td></tr>';
         }
         echo '
                               </tbody>
@@ -62,17 +62,17 @@ class Laporan extends CI_Controller {
                               <tbody>
                                 <tr>
                                   <td>'. $laporan['biaya_lain']['tahun'] .'</td>
-                                  <td>'. $laporan['biaya_lain']['kantor'] .'</td>
-                                  <td>'. $laporan['biaya_lain']['gaji'] .'</td>
-                                  <td>'. $laporan['biaya_lain']['bonus'] .'</td>
-                                  <td>'. $laporan['biaya_lain']['transport'] .'</td>
-                                  <td>'. $laporan['biaya_lain']['listrik'] .'</td>
-                                  <td>'. $laporan['biaya_lain']['keamanan'] .'</td>
-                                  <td>'. $laporan['biaya_lain']['kesehatan'] .'</td>
-                                  <td>'. $laporan['biaya_lain']['konsumsi'] .'</td>
-                                  <td>'. $laporan['biaya_lain']['air'] .'</td>
-                                  <td>'. $laporan['biaya_lain']['lain_lain'] .'</td>
-                                  <td>'. $laporan['biaya_lain']['total'] .'</td>
+                                  <td>Rp'. number_format($laporan['biaya_lain']['kantor'], 0,',','.') .'</td>
+                                  <td>Rp'. number_format($laporan['biaya_lain']['gaji'], 0,',','.') .'</td>
+                                  <td>Rp'. number_format( $laporan['biaya_lain']['bonus'], 0,',','.') .'</td>
+                                  <td>Rp'. number_format($laporan['biaya_lain']['transport'], 0,',','.') .'</td>
+                                  <td>Rp'. number_format($laporan['biaya_lain']['listrik'], 0,',','.') .'</td>
+                                  <td>Rp'. number_format($laporan['biaya_lain']['keamanan'], 0,',','.') .'</td>
+                                  <td>Rp'. number_format($laporan['biaya_lain']['kesehatan'], 0,',','.') .'</td>
+                                  <td>Rp'. number_format($laporan['biaya_lain']['konsumsi'], 0,',','.')  .'</td>
+                                  <td>Rp'. number_format($laporan['biaya_lain']['air'], 0,',','.')  .'</td>
+                                  <td>Rp'. number_format($laporan['biaya_lain']['lain_lain'], 0,',','.') .'</td>
+                                  <td>Rp'. number_format($laporan['biaya_lain']['biaya_lain'], 0,',','.') .'</td>
                                 </tr>
                               </tbody>
                             </table>
@@ -93,12 +93,12 @@ class Laporan extends CI_Controller {
                               <tbody>
                                 <tr>
                                   <td>'. $laporan['laba_rugi']['tahun'] .'</td>
-                                  <td>'. $laporan['laba_rugi']['penjualan'] .'</td>
-                                  <td>'. $laporan['laba_rugi']['bahan_baku'] .'</td>
-                                  <td>'. $laporan['laba_rugi']['tktl'] .'</td>
-                                  <td>'. $laporan['laba_rugi']['hpp'] .'</td>
-                                  <td>'. $laporan['laba_rugi']['biaya_lain'] .'</td>
-                                  <td>'. $laporan['laba_rugi']['total'] .'</td>
+                                  <td>Rp'.number_format($laporan['laba_rugi']['penjualan'], 0,',','.') .'</td>
+                                  <td>Rp'.number_format($laporan['laba_rugi']['bahan_baku'], 0,',','.') .'</td>
+                                  <td>Rp'.number_format($laporan['laba_rugi']['tktl'], 0,',','.') .'</td>
+                                  <td>Rp'.number_format($laporan['laba_rugi']['hpp'], 0,',','.') .'</td>
+                                  <td>Rp'.number_format($laporan['laba_rugi']['biaya_lain'], 0,',','.') .'</td>
+                                  <td>Rp'.number_format($laporan['laba_rugi']['laba_rugi'], 0,',','.') .'</td>
                                 </tr>
                               </tbody>
                             </table>
@@ -116,10 +116,10 @@ class Laporan extends CI_Controller {
                               <tbody>
                                 <tr>
                                   <td>'. $laporan['neraca']['tahun'] .'</td>
-                                  <td>'. $laporan['neraca']['modal'] .'</td>
-                                  <td>'. $laporan['neraca']['laba_rugi'] .'</td>
-                                  <td>'. $laporan['neraca']['kas'] .'</td>
-                                  <td>'. $laporan['neraca']['total'] .'</td>
+                                  <td>Rp'. number_format($laporan['neraca']['modal'],0,',','.') .'</td>
+                                  <td>Rp'. number_format($laporan['neraca']['laba_rugi'],0,',','.') .'</td>
+                                  <td>Rp'. number_format($laporan['neraca']['kas'],0,',','.') .'</td>
+                                  <td>Rp'. number_format($laporan['neraca']['neraca'],0,',','.') .'</td>
                                 </tr>
                               </tbody>
                             </table>
@@ -137,14 +137,14 @@ class Laporan extends CI_Controller {
                                 <tr>
                                   <th>Total</th>
                                   <th></th>
-                                  <th>'. $laporan['total_penghasilan']['penghasilan'] .'</th>
-                                  <th>'. $laporan['total_pajak']['pajak'] .'</th>
+                                  <th>Rp'. number_format($laporan['total_penghasilan']['penghasilan'],0,',','.') .'</th>
+                                  <th>Rp'. number_format($laporan['total_pajak']['pajak'],0,',','.') .'</th>
                                 </tr>
                               </tfoot>
                               <tbody>
         ';
         foreach ($laporan['pajak_pribadi'] as $pp) {
-            echo '<tr><td>'. $pp['tahun'] .'</td><td>'. $pp['bulan'] .'</td><td>'. $pp['penghasilan'] .'</td><td>'. $pp['pajak'] .'</td></tr>';
+            echo '<tr><td>'. $pp['tahun'] .'</td><td>'. $pp['bulan'] .'</td><td>Rp'. number_format($pp['penghasilan'],0,',','.') .'</td><td>Rp'. number_format($pp['pajak'],0,',','.') .'</td></tr>';
         }
         echo '</tbody></table>';
     }

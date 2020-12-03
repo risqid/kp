@@ -39,14 +39,14 @@ class Neraca extends CI_Controller {
 			$modal = htmlspecialchars($this->input->post('modal', true));
 			$laba_rugi = htmlspecialchars($this->input->post('laba_rugi', true));
 			$kas = htmlspecialchars($this->input->post('kas', true));
-			$total = htmlspecialchars($this->input->post('total', true));
+			$neraca = htmlspecialchars($this->input->post('neraca', true));
 			$data_input = [
 				'id' => $id,
 				'tahun' => $tahun,
 				'modal' => $modal,
 				'laba_rugi' => $laba_rugi,
 				'kas' => $kas,
-				'total' => $total
+				'neraca' => $neraca
 			];
 			$data_is_exist = $this->db->get_where('neraca', ['tahun' => $tahun])->row_array();
 			if (empty($id)) {
@@ -89,10 +89,10 @@ class Neraca extends CI_Controller {
 	}
     function get_laba_rugi($tahun)
     {
-        $this->db->select('total');
+        $this->db->select('laba_rugi');
         $result = $this->db->get_where('laba_rugi', ['tahun' => $tahun])->row_array();
         if ($result !== null) {
-            echo $result['total'];            
+            echo $result['laba_rugi'];            
         }
     }
 }
