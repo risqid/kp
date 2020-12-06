@@ -66,7 +66,7 @@ class Pajakbadan extends CI_Controller {
 				// check whether year and month is exist
 				if ($data_is_exist['tahun'] == $tahun && $data_is_exist['bulan'] == $bulan) {
 					$this->session->set_flashdata('message','<script>swal("Data sudah ada!", "", {icon : "error",buttons: {confirm: {className : "btn btn-danger"}},});</script>');
-					redirect('pajak');
+					redirect('pajakbadan');
 				}else{
 					// ketika di hosting tidak menerima zero value untuk auro increment
 					$data_input['id'] = $new_id;
@@ -75,18 +75,18 @@ class Pajakbadan extends CI_Controller {
 					$this->update_model->update_labarugi($tahun);
 					$this->update_model->update_neraca($tahun);
 					$this->session->set_flashdata('message','<script>$.notify({icon: "flaticon-success",title: "Data berhasil ditambahkan",message: "",},{type: "primary",placement: {from: "top",align: "right"},time: 1000,});</script>');
-					redirect('pajak');
+					redirect('pajakbadan');
 				}
 			}else {
 				if ($data_is_exist['tahun'] == $tahun && $data_is_exist['bulan'] == $bulan && $data_is_exist['id'] !== $id) {
 					$this->session->set_flashdata('message','<script>swal("Data sudah ada!", "", {icon : "error",buttons: {confirm: {className : "btn btn-danger"}},});</script>');
-					redirect('pajak');
+					redirect('pajakbadan');
 				}else{
 					$this->pajak_model->edit($data_input);
 					$this->update_model->update_labarugi($tahun);
 					$this->update_model->update_neraca($tahun);
 					$this->session->set_flashdata('message','<script>$.notify({icon: "flaticon-success",title: "Data berhasil diubah",message: "",},{type: "primary",placement: {from: "top",align: "right"},time: 1000,});</script>');
-					redirect('pajak');
+					redirect('pajakbadan');
 				}
 			}
 		}
@@ -94,7 +94,7 @@ class Pajakbadan extends CI_Controller {
 		$this->load->view('templates/header', $data);
 		$this->load->view('templates/navbar');
 		$this->load->view('templates/sidebar', $data);
-		$this->load->view('pajak/index', $data);
+		$this->load->view('pajakbadan/index', $data);
 		$this->load->view('templates/footer');
 	}
 
@@ -108,6 +108,6 @@ class Pajakbadan extends CI_Controller {
 		$this->update_model->update_labarugi($tahun);
 		$this->update_model->update_neraca($tahun);
 		$this->session->set_flashdata('message','<script>$.notify({icon: "flaticon-success",title: "Data berhasil dihapus",message: "",},{type: "primary",placement: {from: "top",align: "right"},time: 1000,});</script>');
-		redirect('pajak');
+		redirect('pajakbadan');
 	}
 }
