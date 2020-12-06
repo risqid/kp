@@ -151,7 +151,7 @@
                                   <i class="fa fa-edit"></i>
                                 </button>
                               </a>
-                              <a href="<?= base_url('pajak/hapus/').$d['id'] ?>" onclick="return confirm('apakah anda yakin ingin menghapusnya?')">
+                              <a href="<?= base_url('pajakbadan/hapus/').$d['id'] ?>" onclick="return confirm('apakah anda yakin ingin menghapusnya?')">
                                 <button class="btn btn-link btn-danger" type="button" data-toggle="tooltip" data-original-title="Hapus">
                                   <i class="fa fa-trash"></i>
                                 </button>

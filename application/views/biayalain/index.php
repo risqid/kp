@@ -176,7 +176,7 @@
                               </div>
                               <div class="col-lg-6">
                                 <div class="form-group">
-                                  <label>biaya_lain</label>
+                                  <label>Biaya Lain</label>
                                   <div class="input-group">
                                     <div class="input-group-prepend">
                                       <span class="input-group-text">Rp</span>
@@ -214,7 +214,7 @@
                           <th>Konsumsi</th>
                           <th>Air</th>
                           <th>Lainlain</th>
-                          <th>biaya_lain</th>
+                          <th>Biaya Lain</th>
                           <th style="width: 10%">Aksi</th>
                         </tr>
                       </thead>
@@ -406,7 +406,7 @@
                               </div>
                               <div class="col-lg-6">
                                 <div class="form-group">
-                                  <label>biaya_lain</label>
+                                  <label>Biaya Lain</label>
                                   <div class="input-group">
                                     <div class="input-group-prepend">
                                       <span class="input-group-text">Rp</span>
