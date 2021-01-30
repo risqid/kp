@@ -64,8 +64,7 @@
                                       </span>
                                     </div>
                                     <select name="bulan" class="form-control" onchange="validateBulan()">
-                                      <option value="pilih bulan">pilih bulan</option>
-                                      <option value="<?= $bulan[$month_now] ?>">bulan ini</option>
+                                      <option value="pilih bulan">Pilih bulan</option>
                                       <option value="Januari">Januari</option>
                                       <option value="Februari">Februari</option>
                                       <option value="Maret">Maret</option>

@@ -51,7 +51,7 @@
                                       </span>
                                     </div>
                                     <select name="tahun" class="form-control" data-form="add" onchange="getPenjualan(this.value), getBiayaLain(this.value), resetAdd()">
-                                      <option value="pilih tahun">pilih tahun</option>
+                                      <option value="pilih tahun">Pilih tahun</option>
                                       <?php foreach ($tahun as $tp) : ?>
                                         <option value="<?= $tp['tahun'] ?>"><?= $tp['tahun'] ?></option>
                                       <?php endforeach ?>
@@ -217,7 +217,7 @@
                                       </span>
                                     </div>
                                     <select name="tahun" class="form-control" onchange="getPenjualanEdit(this.value), getBiayaLainEdit(this.value), resetEdit()">
-                                      <option value="pilih tahun">pilih tahun</option>
+                                      <option value="Pilih tahun">pilih tahun</option>
                                       <?php foreach ($tahun as $tp) : ?>
                                         <option value="<?= $tp['tahun'] ?>"><?= $tp['tahun'] ?></option>
                                       <?php endforeach ?>

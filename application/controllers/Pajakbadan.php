@@ -16,23 +16,6 @@ class Pajakbadan extends CI_Controller {
 		$data['subtitle'] = "Data Perpajakan Badan";
 		$data['url'] = "pajakbadan";
 
-		// data untuk modal
-		$data['bulan'] = [
-			"01" => 'Januari',
-			"02" => 'Februari',
-			"03" => 'Maret',
-			"04" => 'April',
-			"05" => 'Mei',
-			"06" =>'Juni',
-			"07" =>'Juli',
-			"08" => 'Agustus',
-			"09" => 'September',
-			"10" => 'Oktober',
-			"11" => 'November',
-			"12" => 'Desember'
-		];
-		$data['month_now'] = date("m");
-
 		$data['data'] = $this->pajak_model->show();
 
 		// ketika di hosting tidak menerima zero value untuk auro increment

@@ -51,7 +51,7 @@
                                       </span>
                                     </div>
                                     <select name="tahun" class="form-control" onchange="getLabaRugi(this.value), resetAdd()">
-                                      <option value="pilih tahun">pilih tahun</option>
+                                      <option value="pilih tahun">Pilih tahun</option>
                                       <?php foreach ($tahun as $t) : ?>
                                         <option value="<?= $t['tahun'] ?>"><?= $t['tahun'] ?></option>
                                       <?php endforeach ?>
@@ -78,7 +78,7 @@
                                     <div class="input-group-prepend">
                                       <span class="input-group-text">Rp</span>
                                     </div>
-                                    <input name="laba_rugi" type="text" value="0" required autocomplete="off" class="form-control" placeholder="pilih tahun  . . ." onkeyup="calculateTotal(), validateInput(this)">
+                                    <input name="laba_rugi" type="text" value="0" required autocomplete="off" class="form-control" placeholder="laba rugi  . . ." onkeyup="calculateTotal(), validateInput(this)">
                                   </div>
                                   <small id="laba_rugi" class="form-text text-danger"></small>
                                 </div>
@@ -189,7 +189,7 @@
                                       </span>
                                     </div>
                                     <select name="tahun" class="form-control" onchange="getLabaRugiEdit(this.value), resetEdit()">
-                                      <option value="pilih tahun">pilih tahun</option>
+                                      <option value="pilih tahun">Pilih tahun</option>
                                       <?php foreach ($tahun as $t) : ?>
                                         <option value="<?= $t['tahun'] ?>"><?= $t['tahun'] ?></option>
                                       <?php endforeach ?>
@@ -216,7 +216,7 @@
                                     <div class="input-group-prepend">
                                       <span class="input-group-text">Rp</span>
                                     </div>
-                                    <input name="laba_rugi" type="text" value="0" required autocomplete="off" class="form-control" placeholder="pilih tahun  . . ." onkeyup="calculateTotalEdit(), validateEdit(this)">
+                                    <input name="laba_rugi" type="text" value="0" required autocomplete="off" class="form-control" placeholder="laba rugi" onkeyup="calculateTotalEdit(), validateEdit(this)">
                                   </div>
                                   <small id="editlaba_rugi" class="form-text text-danger"></small>
                                 </div>

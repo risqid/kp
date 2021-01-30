@@ -22,7 +22,7 @@
                     </div>
                     <div class="col-7 col-stats">
                       <div class="numbers">
-                        <p class="card-category">Penjualan Terakhir</p>
+                        <p class="card-category">Penjualan Bulan Lalu</p>
                         <?php if($pajak_badan === null) : ?>
                         <h4 class="card-title">Belum ada data</h4>
                         <?php else : ?>
@@ -35,7 +35,7 @@
               </div>
             </div>
             <div class="col-sm-6 col-md-6">
-              <div class="card card-stats card-primary card-round">
+              <div class="card card-stats card-info card-round">
                 <div class="card-body">
                   <div class="row">
                     <div class="col-5">
@@ -45,7 +45,7 @@
                     </div>
                     <div class="col-7 col-stats">
                       <div class="numbers">
-                        <p class="card-category">Pajak Badan</p>
+                        <p class="card-category">Pajak Badan Bulan Lalu</p>
                         <?php if($pajak_badan === null) : ?>
                         <h4 class="card-title">Belum ada data</h4>
                         <?php else : ?>
@@ -58,7 +58,7 @@
               </div>
             </div>
             <div class="col-sm-6 col-md-6">
-              <div class="card card-stats card-info card-round">
+              <div class="card card-stats card-success card-round">
                 <div class="card-body ">
                   <div class="row">
                     <div class="col-5">
@@ -68,7 +68,7 @@
                     </div>
                     <div class="col-7 col-stats">
                       <div class="numbers">
-                        <p class="card-category">Penghasilan Terakhir</p>
+                        <p class="card-category">Penghasilan Bulan Lalu</p>
                         <?php if($pajak_pribadi === null) : ?>
                         <h4 class="card-title">Belum ada data</h4>
                         <?php else : ?>
@@ -81,7 +81,7 @@
               </div>
             </div>
             <div class="col-sm-6 col-md-6">
-              <div class="card card-stats card-info card-round">
+              <div class="card card-stats card-secondary card-round">
                 <div class="card-body ">
                   <div class="row">
                     <div class="col-5">
@@ -91,7 +91,7 @@
                     </div>
                     <div class="col-7 col-stats">
                       <div class="numbers">
-                        <p class="card-category">Pajak Pribadi</p>
+                        <p class="card-category">Pajak Pribadi Bulan Lalu</p>
                         <?php if($pajak_pribadi === null) : ?>
                         <h4 class="card-title">Belum ada data</h4>
                         <?php else : ?>
