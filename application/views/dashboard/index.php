@@ -247,10 +247,10 @@
           }
         });
 
-        var myLegendContainer = document.getElementById("myChartLegend");
+        // var myLegendContainer = document.getElementById("myChartLegend");
 
-        // generate HTML legend
-        myLegendContainer.innerHTML = chartPenjualan.generateLegend();
+        // // generate HTML legend
+        // myLegendContainer.innerHTML = chartPenjualan.generateLegend();
                 }
             };
             xhr.open("GET", url, true);

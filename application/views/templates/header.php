@@ -17,8 +17,6 @@
       }
     });
   </script>
-  <!-- CSS Files -->
-  <link rel="stylesheet" href="<?= base_url('assets') ?>/css/custom.css">
   <link rel="stylesheet" href="<?= base_url('assets') ?>/vendor/atlantis-lite/assets/css/editedbootstrap.min.css">
   <link rel="stylesheet" href="<?= base_url('assets') ?>/vendor/atlantis-lite/assets/css/atlantis.css">
   <!--   Core JS Files   -->
@@ -31,8 +29,62 @@
   <script src="<?= base_url('assets') ?>/vendor/atlantis-lite/assets/js/plugin/sweetalert/sweetalert.min.js"></script>
   <!-- Chart JS -->
   <script src="<?= base_url('assets') ?>/vendor/atlantis-lite/assets/js/plugin/chart.js/chart.min.js"></script>
-  <script src="<?= base_url('assets') ?>/vendor/jspdf.min.js"></script>
+  <!-- style dark-light togle button -->
+  <style type="text/css">
+    input#switch {
+      height: 0;
+      width: 0;
+      visibility: hidden;
+    }
 
+    label#switchLabel {
+      cursor: pointer;
+      text-indent: -9999px;
+      width: 52px;
+      height: 27px;
+      background: grey;
+      float: right;
+      border-radius: 100px;
+      position: relative;
+    }
+
+    label#switchLabel:after {
+      content: '';
+      position: absolute;
+      top: 3px;
+      left: 3px;
+      width: 20px;
+      height: 20px;
+      background: #fff;
+      border-radius: 90px;
+      -webkit-transition: 0.3s;
+      transition: 0.3s;
+    }
+
+    input#switch:checked + label#switchLabel {
+      background: #3694ff;
+    }
+
+    input#switch:checked + label#switchLabel:after {
+      left: calc(100% - 5px);
+      -webkit-transform: translateX(-100%);
+              transform: translateX(-100%);
+    }
+
+    label#switchLabel:active:after {
+      width: 45px;
+    }
+
+    html.transition,
+    html.transition *,
+    html.transition *:before,
+    html.transition *:after {
+      -webkit-transition: all 0.75s !important;
+      transition: all 0.75s !important;
+      -webkit-transition-delay: 0 !important;
+              transition-delay: 0 !important;
+    }
+  </style>
 </head>
 <body>
   <div class="wrapper">

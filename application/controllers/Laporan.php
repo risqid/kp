@@ -44,7 +44,7 @@ class Laporan extends CI_Controller {
         $this->load->model('laporan_model');
         $data['data'] = $this->laporan_model->show($tahun);
         $laporan = $data['data'];
-        echo '<h5 class="card-title text-center">Laporan Keuangan Tahun '.$laporan['neraca']['tahun'].'</h5><br><h5 class="card-title">Pajak Badan</h5><br><table class="table table-striped table-head-bg-info"><thead><tr><th>Bulan</th><th>Penjualan</th><th>Pajak</th></tr></thead><tfoot><tr><th>Total</th><th>Rp'. number_format($laporan['total_penjualan']['penjualan'],0,',','.')  .'</th><th>Rp'. number_format($laporan['total_pajak']['pajak'],0,',','.')  .'</th></tr></tfoot><tbody>
+        echo '<h5 class="card-title text-center">Laporan Keuangan Tahun '.$laporan['neraca']['tahun'].'</h5><br><h5 class="card-title">Pajak Badan</h5><br><table class="table table-striped"><thead><tr><th>Bulan</th><th>Penjualan</th><th>Pajak</th></tr></thead><tfoot><tr><th>Total</th><th>Rp'. number_format($laporan['total_penjualan']['penjualan'],0,',','.')  .'</th><th>Rp'. number_format($laporan['total_pajak']['pajak'],0,',','.')  .'</th></tr></tfoot><tbody>
         ';
         foreach ($laporan['pajak_badan'] as $pb) {
             echo '<tr><td>'. $pb['bulan'] .'</td><td>Rp'. number_format($pb['penjualan'], 0,',','.') .'</td><td>Rp'. number_format($pb['pajak'], 0,',','.') .'</td></tr>';
@@ -53,7 +53,7 @@ class Laporan extends CI_Controller {
                               </tbody>
                             </table>
                             <h5 class="card-title">Biaya Lain</h5><br>
-                            <table class="table table-striped table-head-bg-info">
+                            <table class="table table-striped">
                               <thead>
                                 <tr>
                                   <th>Kantor</th>
@@ -87,7 +87,7 @@ class Laporan extends CI_Controller {
                             </table>
                             </div>
                             <h5 class="card-title">Laba Rugi</h5><br>
-                            <table class="table table-striped table-head-bg-info">
+                            <table class="table table-striped">
                               <thead>
                                 <tr>
                                   
@@ -111,7 +111,7 @@ class Laporan extends CI_Controller {
                               </tbody>
                             </table>
                             <h5 class="card-title">Neraca</h5><br>
-                            <table class="table table-striped table-head-bg-info">
+                            <table class="table table-striped">
                               <thead>
                                 <tr>
                                   <th>Modal</th>
@@ -130,7 +130,7 @@ class Laporan extends CI_Controller {
                               </tbody>
                             </table>
                             <h5 class="card-title">Pajak Pribadi</h5><br>
-                            <table class="table table-striped table-head-bg-info" >
+                            <table class="table table-striped" >
                               <thead>
                                 <tr>
                                   <th>Bulan</th>

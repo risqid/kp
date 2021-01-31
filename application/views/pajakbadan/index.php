@@ -36,7 +36,7 @@
                     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
                       <div class="modal-content">
                         <div class="modal-header no-bd justify-content-center">
-                          <h4 class="modal-title">Tambah <?= $subtitle ?></h4>
+                          <h5 class="card-title">Tambah <?= $subtitle ?></h5>
                         </div>
                         <div class="modal-body">
                           <form name="add" action="" method="post" onsubmit="return validateForm()">
@@ -120,7 +120,7 @@
 
                   <!-- table -->
                   <div class="table-responsive">
-                    <table id="multi-filter-select" class="table table-head-bg-info table-striped table-hover" >
+                    <table id="multi-filter-select" class="table table-striped table-hover" >
                       <thead>
                         <tr>
                           <th>Tahun</th>
@@ -169,7 +169,7 @@
                     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
                       <div class="modal-content">
                         <div class="modal-header no-bd justify-content-center">
-                          <h4 class="modal-title">Ubah <?= $subtitle ?></h4>
+                          <h4 class="card-title">Ubah <?= $subtitle ?></h4>
                         </div>
                         <div class="modal-body">
                           <!-- form's name is important to make loadEditData() function works -->

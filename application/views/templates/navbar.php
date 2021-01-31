@@ -1,7 +1,6 @@
     <div class="main-header">
       <!-- Logo Header -->
-      <div class="logo-header" data-background-color="white">
-
+      <div id="logo" class="logo-header" data-background-color="white">
         <a href="<?= base_url() ?>" class="logo">
           <img height="50" src="<?= base_url('assets') ?>/img/logo.png" alt="navbar brand" class="navbar-brand">
         </a>
@@ -20,12 +19,15 @@
       <!-- End Logo Header -->
 
       <!-- Navbar Header -->
-      <nav class="navbar navbar-header navbar-expand-lg" data-background-color="white">
+      <nav id="navbar" class="navbar navbar-header navbar-expand-lg" data-background-color="white">
         <div class="container-fluid">
           <ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
+          <div class="toggle-container mr-3">
+            <input data-title="<?= $title ?>" type="checkbox" name="theme" id="switch"><label id="switchLabel" for="switch">Toggle</label>
+          </div>
             <li class="nav-item">
-              <a class="nav-link btn" href="<?= base_url('auth/logout') ?>" onclick="return confirm('apakah anda yakin ingin keluar?')" data-toggle="tooltip" data-original-title="Log out">
-                <span><i class="fas fa-sign-out-alt "></i></span>
+              <a class="nav-link btn" href="<?= base_url('auth/logout') ?>" onclick="return confirm('apakah anda yakin ingin keluar?')" data-toggle="tooltip" data-original-title="Keluar">
+                <span><i class="fas fa-sign-out-alt"></i></span>
               </a>
             </li>
           </ul>
