@@ -15,8 +15,7 @@ class Laporan extends CI_Controller {
 		$data['subtitle'] = "Data Laporan";
     $data['url'] = "laporan";
 
-		// data for table
-		$data['laporan'] = $this->laporan_model->show(date('Y')-2);
+    $data['last_year'] = date('Y') - 1;
 
 		$this->db->select('tahun');
 		$data['tahun'] = $this->db->get('neraca')->result_array();

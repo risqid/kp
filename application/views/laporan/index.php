@@ -26,7 +26,7 @@
 
                     </div>
                     <div class="card-tools">
-                      <a id="export-link" href="<?= base_url('laporan/pdf/').date('Y')-1 ?>" class="btn btn-info btn-border btn-round btn-sm">
+                      <a id="export-link" href="<?= base_url('laporan/pdf/').$last_year ?>" class="btn btn-info btn-border btn-round btn-sm">
                         <span class="btn-label">
                           <i class="fa fa-print"></i>
                         </span>
