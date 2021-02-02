@@ -14,7 +14,7 @@
                   <span class="input-icon-addon">
                     <i class="fa fa-user"></i>
                   </span>
-                  <input name="username" type="text" class="form-control" autofocus placeholder="Username" required>
+                  <input value="teknik" name="username" type="text" class="form-control" autofocus placeholder="Username" required>
                 </div>
               </div>
               <div class="form-group">
@@ -22,7 +22,7 @@
                   <span class="input-icon-addon">
                     <i class="fas fa-lock"></i>
                   </span>
-                  <input id="myPassword" name="password" type="password" class="form-control" placeholder="Password" required>
+                  <input value="unwahas" id="myPassword" name="password" type="password" class="form-control" placeholder="Password" required>
                 </div>
               </div>
               <div class="form-check ml-2">
